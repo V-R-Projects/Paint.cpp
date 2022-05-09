@@ -2,9 +2,10 @@
 
 using namespace std;
 
-Bitmap::Bitmap()
+Bitmap::Bitmap(int height, int width)
 {
-    // empty
+    pixel_array_size = height * width * (BITS_PER_PIXEL / 8);
+    generateBitmapImage(height, width);
 }
 
 void Bitmap::generateBitmapImage(int height, int width)
@@ -17,28 +18,9 @@ void Bitmap::generateBitmapImage(int height, int width)
 
     fwrite(file_header, 1, FILE_HEADER_SIZE, image_file);
     fwrite(info_header, 1, INFO_HEADER_SIZE, image_file);
-    fwrite(pixel_array, 1, sizeof(pixel_array), image_file);
+    fwrite(pixel_array, 1, pixel_array_size, image_file);
 
     cout << "Bitmap Image created succesfully!" << endl;
-
-    for (int i = 0; i < 14; i++)
-    {
-        int number = file_header[i];
-        std::cout << number << " ";
-    }
-    cout << endl;
-    for (int i = 0; i < 40; i++)
-    {
-        int number = info_header[i];
-        std::cout << number << " ";
-    }
-    cout << endl;
-    for (int i = 0; i < 48; i++)
-    {
-        int number = pixel_array[i];
-        std::cout << number << " ";
-    }
-    cout << endl;
 }
 
 unsigned char *Bitmap::createBitmapFileHeader(int height, int width)
@@ -92,11 +74,9 @@ void Bitmap::fillFourBytes(unsigned char *array, int value, int init_byte)
 
 unsigned char *Bitmap::generateBlankCanvas(int height, int width)
 {
-    int bitmap_size = height * width * (BITS_PER_PIXEL / 8);
+    unsigned char *bitmap = (unsigned char *)malloc(pixel_array_size);
 
-    unsigned char *bitmap = (unsigned char *)malloc(bitmap_size);
-
-    for (int i = 0; i < bitmap_size; i++)
+    for (int i = 0; i < pixel_array_size; i++)
     {
         bitmap[i] = 255;
     }

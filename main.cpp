@@ -2,6 +2,5 @@
  
  int main()
  {
-     Bitmap *image_test = new Bitmap();
-     image_test->generateBitmapImage(4, 4);
+     Bitmap *image_test = new Bitmap(50,50);
  }
