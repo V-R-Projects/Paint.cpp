@@ -1,15 +1,67 @@
 #include "Bitmap.hpp"
 
+using namespace std;
+
 Bitmap::Bitmap()
 {
     // empty
 }
 
-char *Bitmap::createBitmapInfoHeader(int height, int width)
+void Bitmap::generateBitmapImage(int height, int width)
 {
-    int image_size = height * width * BYTES_PER_PIXEL;
+    FILE *image_file = fopen("canvas.bmp", "wb");
 
-    static unsigned char infoHeader[] = {
+    unsigned char *file_header = createBitmapFileHeader(height, width);
+    unsigned char *info_header = createBitmapInfoHeader(height, width);
+    unsigned char *pixel_array = generateBlankCanvas(height, width);
+
+    fwrite(file_header, 1, FILE_HEADER_SIZE, image_file);
+    fwrite(info_header, 1, INFO_HEADER_SIZE, image_file);
+    fwrite(pixel_array, 1, sizeof(pixel_array), image_file);
+
+    cout << "Bitmap Image created succesfully!" << endl;
+
+    for (int i = 0; i < 14; i++)
+    {
+        int number = file_header[i];
+        std::cout << number << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < 40; i++)
+    {
+        int number = info_header[i];
+        std::cout << number << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < 48; i++)
+    {
+        int number = pixel_array[i];
+        std::cout << number << " ";
+    }
+    cout << endl;
+}
+
+unsigned char *Bitmap::createBitmapFileHeader(int height, int width)
+{
+    int file_size = FILE_HEADER_SIZE + INFO_HEADER_SIZE + (width * height * (BITS_PER_PIXEL / 8));
+
+    static unsigned char file_header[] = {
+        'B', 'M',    /// signature
+        0, 0, 0, 0,  /// image file size in bytes
+        0, 0, 0, 0,  /// reserved
+        54, 0, 0, 0, /// start of pixel array
+    };
+
+    fillFourBytes(file_header, file_size, 2);
+
+    return file_header;
+}
+
+unsigned char *Bitmap::createBitmapInfoHeader(int height, int width)
+{
+    int image_size = height * width * BITS_PER_PIXEL;
+
+    static unsigned char info_header[] = {
         40, 0, 0, 0,  /// header size
         0, 0, 0, 0,   /// image width
         0, 0, 0, 0,   /// image height
@@ -23,9 +75,11 @@ char *Bitmap::createBitmapInfoHeader(int height, int width)
         0, 0, 0, 0,   /// important color count
     };
 
-    fillFourBytes(infoHeader, width, 4);
-    fillFourBytes(infoHeader, height, 8);
-    fillFourBytes(infoHeader, image_size, 20);
+    fillFourBytes(info_header, width, 4);
+    fillFourBytes(info_header, height, 8);
+    fillFourBytes(info_header, image_size, 20);
+
+    return info_header;
 }
 
 void Bitmap::fillFourBytes(unsigned char *array, int value, int init_byte)
@@ -34,4 +88,18 @@ void Bitmap::fillFourBytes(unsigned char *array, int value, int init_byte)
     {
         array[i] = (unsigned char)(value >> (8 * (i - init_byte)));
     }
+}
+
+unsigned char *Bitmap::generateBlankCanvas(int height, int width)
+{
+    int bitmap_size = height * width * (BITS_PER_PIXEL / 8);
+
+    unsigned char *bitmap = (unsigned char *)malloc(bitmap_size);
+
+    for (int i = 0; i < bitmap_size; i++)
+    {
+        bitmap[i] = 255;
+    }
+
+    return bitmap;
 }
