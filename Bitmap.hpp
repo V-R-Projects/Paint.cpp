@@ -1,6 +1,8 @@
 #ifndef Bitmap_h
 #define Bitmap_h
 
+#include "Pixel.hpp"
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -13,14 +15,15 @@
 class Bitmap
 {
 public:
-    Bitmap(int height, int width);
-    void generateBitmapImage(int height, int width);
+    Bitmap(Pixel ***matrix, int height, int width);
+    void generateBitmapImage(Pixel ***matrix, int height, int width);
+    void fillFourBytes(unsigned char *array, int value, int init_byte);
     unsigned char *createBitmapFileHeader(int height, int width);
     unsigned char *createBitmapInfoHeader(int height, int width);
-    void fillFourBytes(unsigned char *array, int value, int init_byte);
     unsigned char *generateBlankCanvas(int height, int width);
-
+    unsigned char *matrixToPixelArray(Pixel ***matrix, int height, int width);
 private:
+    int padding_bytes;
     int pixel_array_size;
 };
 #endif

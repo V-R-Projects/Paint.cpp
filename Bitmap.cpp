@@ -2,19 +2,26 @@
 
 using namespace std;
 
-Bitmap::Bitmap(int height, int width)
-{
-    pixel_array_size = height * width * (BITS_PER_PIXEL / 8);
-    generateBitmapImage(height, width);
+Bitmap::Bitmap(Pixel ***matrix, int height, int width)
+{   
+    padding_bytes = 4 - (width * BITS_PER_PIXEL / 8) % 4;
+    pixel_array_size = height * width * (BITS_PER_PIXEL / 8) + padding_bytes * height;
+    generateBitmapImage(matrix, height, width);
 }
 
-void Bitmap::generateBitmapImage(int height, int width)
+void Bitmap::generateBitmapImage(Pixel ***matrix, int height, int width)
 {
     FILE *image_file = fopen("canvas.bmp", "wb");
 
     unsigned char *file_header = createBitmapFileHeader(height, width);
     unsigned char *info_header = createBitmapInfoHeader(height, width);
-    unsigned char *pixel_array = generateBlankCanvas(height, width);
+    unsigned char *pixel_array = matrixToPixelArray(matrix, height, width);
+
+    for(int i = 0; i < pixel_array_size; i++)
+    {
+        int numeral = pixel_array[i];
+        std::cout << numeral << std::endl;
+    }
 
     fwrite(file_header, 1, FILE_HEADER_SIZE, image_file);
     fwrite(info_header, 1, INFO_HEADER_SIZE, image_file);
@@ -41,7 +48,6 @@ unsigned char *Bitmap::createBitmapFileHeader(int height, int width)
 
 unsigned char *Bitmap::createBitmapInfoHeader(int height, int width)
 {
-    int image_size = height * width * (BITS_PER_PIXEL/8);
 
     static unsigned char info_header[] = {
         40, 0, 0, 0,  /// header size
@@ -59,7 +65,7 @@ unsigned char *Bitmap::createBitmapInfoHeader(int height, int width)
 
     fillFourBytes(info_header, width, 4);
     fillFourBytes(info_header, height, 8);
-    fillFourBytes(info_header, image_size, 20);
+    fillFourBytes(info_header, pixel_array_size, 20);
 
     return info_header;
 }
@@ -74,12 +80,31 @@ void Bitmap::fillFourBytes(unsigned char *array, int value, int init_byte)
 
 unsigned char *Bitmap::generateBlankCanvas(int height, int width)
 {
-    unsigned char *bitmap = (unsigned char *)malloc(pixel_array_size);
+    unsigned char *pixel_array = (unsigned char *)malloc(pixel_array_size);
 
     for (int i = 0; i < pixel_array_size; i++)
     {
-        bitmap[i] = 34;
+        pixel_array[i] = 34;
     }
 
-    return bitmap;
+    return pixel_array;
+}
+
+unsigned char *Bitmap::matrixToPixelArray(Pixel ***matrix, int height, int width)
+{
+    unsigned char *pixel_array = (unsigned char *)malloc(pixel_array_size);
+    int c = 0;
+    for (int i = height - 1; i >= 0; i--)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            pixel_array[c] = matrix[i][j]->getBlue();
+            pixel_array[c + 1] = matrix[i][j]->getGreen();
+            pixel_array[c + 2] = matrix[i][j]->getRed();
+            c += 3;
+        }
+        c += padding_bytes;
+    }
+
+    return pixel_array;
 }

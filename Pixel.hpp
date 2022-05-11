@@ -9,6 +9,9 @@ public:
     Pixel();
     void print();
     void setColor(int r, int g, int b);
+    int getRed();
+    int getGreen();
+    int getBlue();
 
 private:
     int R;

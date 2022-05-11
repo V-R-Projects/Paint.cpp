@@ -3,6 +3,7 @@
 
 #include "Pixel.cpp"
 #include <iostream>
+#include <cmath>
 
 class Matrix
 {
@@ -12,6 +13,12 @@ public:
     void createMatrix();
     void initializePixels();
     void printMatrix();
+    Pixel ***getMatrix();
+    int getHeight();
+    int getWidth();
+
+
+    void line(int x1, int y1, int x2, int y2);
 
 private:
     int height, width;
