@@ -41,7 +41,7 @@ unsigned char *Bitmap::createBitmapFileHeader(int height, int width)
 
 unsigned char *Bitmap::createBitmapInfoHeader(int height, int width)
 {
-    int image_size = height * width * BITS_PER_PIXEL;
+    int image_size = height * width * (BITS_PER_PIXEL/8);
 
     static unsigned char info_header[] = {
         40, 0, 0, 0,  /// header size
@@ -78,7 +78,7 @@ unsigned char *Bitmap::generateBlankCanvas(int height, int width)
 
     for (int i = 0; i < pixel_array_size; i++)
     {
-        bitmap[i] = 255;
+        bitmap[i] = 34;
     }
 
     return bitmap;

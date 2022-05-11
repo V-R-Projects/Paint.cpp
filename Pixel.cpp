@@ -13,3 +13,8 @@ void Pixel::setColor(int r, int g, int b)
     G = g;
     B = b;
 }
+
+void Pixel::print()
+{
+    cout << "Pixel: " << R << ", " << G << ", " << B << endl;
+}

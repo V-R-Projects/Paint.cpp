@@ -7,18 +7,15 @@
 class Matrix
 {
 public:
-    Matrix();
-    static Matrix *getInstance();
-    static void setSize(int height, int width);
+    Matrix(int height, int width);
+    void setSize(int height, int width);
     void createMatrix();
     void initializePixels();
-
-    static int height;
-    static int width;
+    void printMatrix();
 
 private:
-    static Matrix *matrix_instance;
-    Pixel **matrix;
+    int height, width;
+    Pixel ***matrix;
 };
 
 #endif

@@ -5,14 +5,15 @@
 
 class Pixel
 {
-    public:
-        Pixel();
-        void setColor(int r, int g, int b);
+public:
+    Pixel();
+    void print();
+    void setColor(int r, int g, int b);
 
-    private:
-        int R;
-        int G;
-        int B;
+private:
+    int R;
+    int G;
+    int B;
 };
 
 #endif
