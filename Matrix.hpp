@@ -2,7 +2,9 @@
 #define Matrix_h
 
 #include "Pixel.cpp"
+#include "CurrentColor.hpp"
 #include <iostream>
+#include <string>
 #include <cmath>
 
 class Matrix
@@ -18,7 +20,7 @@ public:
     int getWidth();
 
 
-    void line(int x1, int y1, int x2, int y2);
+    void line(CurrentColor color, int x1, int y1, int x2, int y2);
 
 private:
     int height, width;
