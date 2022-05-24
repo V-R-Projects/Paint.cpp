@@ -2,26 +2,20 @@
 
 using namespace std;
 
-Bitmap::Bitmap(Pixel ***matrix, int height, int width)
+Bitmap::Bitmap(Pixel ***matrix, int height, int width, char file_name[])
 {   
     padding_bytes = 4 - (width * BITS_PER_PIXEL / 8) % 4;
     pixel_array_size = height * width * (BITS_PER_PIXEL / 8) + padding_bytes * height;
-    generateBitmapImage(matrix, height, width);
+    generateBitmapImage(matrix, height, width, file_name);
 }
 
-void Bitmap::generateBitmapImage(Pixel ***matrix, int height, int width)
+void Bitmap::generateBitmapImage(Pixel ***matrix, int height, int width, char file_name[])
 {
-    FILE *image_file = fopen("canvas.bmp", "wb");
+    FILE *image_file = fopen(file_name, "wb");
 
     unsigned char *file_header = createBitmapFileHeader(height, width);
     unsigned char *info_header = createBitmapInfoHeader(height, width);
     unsigned char *pixel_array = matrixToPixelArray(matrix, height, width);
-
-    for(int i = 0; i < pixel_array_size; i++)
-    {
-        int numeral = pixel_array[i];
-        std::cout << numeral << std::endl;
-    }
 
     fwrite(file_header, 1, FILE_HEADER_SIZE, image_file);
     fwrite(info_header, 1, INFO_HEADER_SIZE, image_file);

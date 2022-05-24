@@ -62,7 +62,7 @@ int Matrix::getWidth()
     return width;
 }
 
-void Matrix::line(int x1, int y1, int x2, int y2)
+void Matrix::line(CurrentColor color, int x1, int y1, int x2, int y2)
 {
     if (x2 - x1 == 0)
     {
@@ -74,14 +74,13 @@ void Matrix::line(int x1, int y1, int x2, int y2)
         }
         for (int i = y1; i <= y2; i++)
         {
-            matrix[i][x1]->setColor(255, 0, 0);
+            matrix[i][x1]->setColor(color.getR(), color.getG(), color.getB());
         }
     }
     else
     {
 
         float m = (float)(y2 - y1) / (float)(x2 - x1);
-        printf("m: %f\n", m);
         float b = y1 - (m * x1);
         if (x2 < x1)
         {
@@ -95,7 +94,7 @@ void Matrix::line(int x1, int y1, int x2, int y2)
             int new_y = round(m * i + b);
             if (new_y == old_y)
             {
-                matrix[new_y][i]->setColor(255, 0, 0);
+                matrix[new_y][i]->setColor(color.getR(), color.getG(), color.getB());
             }
             else
             {
@@ -103,14 +102,14 @@ void Matrix::line(int x1, int y1, int x2, int y2)
                 {
                     for (int j = old_y+1; j <= new_y; j++)
                     {
-                        matrix[j][i]->setColor(255, 0, 0);
+                        matrix[j][i]->setColor(color.getR(), color.getG(), color.getB());
                     }
                 }
                 else
                 {
                     for (int j = old_y-1; j >= new_y; j--)
                     {
-                        matrix[j][i]->setColor(255, 0, 0);
+                        matrix[j][i]->setColor(color.getR(), color.getG(), color.getB());
                     }
                 }
             }

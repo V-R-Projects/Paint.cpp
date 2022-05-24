@@ -15,13 +15,14 @@
 class Bitmap
 {
 public:
-    Bitmap(Pixel ***matrix, int height, int width);
-    void generateBitmapImage(Pixel ***matrix, int height, int width);
+    Bitmap(Pixel ***matrix, int height, int width, char file_name[]);
+    void generateBitmapImage(Pixel ***matrix, int height, int width, char file_name[]);
     void fillFourBytes(unsigned char *array, int value, int init_byte);
     unsigned char *createBitmapFileHeader(int height, int width);
     unsigned char *createBitmapInfoHeader(int height, int width);
     unsigned char *generateBlankCanvas(int height, int width);
     unsigned char *matrixToPixelArray(Pixel ***matrix, int height, int width);
+
 private:
     int padding_bytes;
     int pixel_array_size;
