@@ -20,7 +20,7 @@ public:
     void fillFourBytes(unsigned char *array, int value, int init_byte);
     unsigned char *createBitmapFileHeader(int height, int width);
     unsigned char *createBitmapInfoHeader(int height, int width);
-    unsigned char *generateBlankCanvas(int height, int width);
+    unsigned char *generateBlankCanvas();
     unsigned char *matrixToPixelArray(Pixel ***matrix, int height, int width);
 
 private:
