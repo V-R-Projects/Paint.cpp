@@ -19,8 +19,12 @@ public:
     int getHeight();
     int getWidth();
 
-
-    void line(CurrentColor color, int x1, int y1, int x2, int y2);
+    void pencil(CurrentColor color, int i, int j, int line_width);
+    void pen(CurrentColor color, int x1, int y1, int x2, int y2, int line_width);
+    void rotate();
+    void deleteMatrix();
+    void switchDimentions();
+    void eraser(int i, int j, int eraser_width);
 
 private:
     int height, width;

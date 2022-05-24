@@ -6,10 +6,11 @@ int main()
 {
     Matrix *matrix = new Matrix(50, 50);
 
-    // cuando se selecciona un color
-    CurrentColor black = CurrentColor(0, 0, 255);
+    // Picking color
+    CurrentColor purple = CurrentColor(78, 50, 168);
+    CurrentColor red = CurrentColor(204, 10, 10);
 
-    matrix->line(black, 0, 49, 49, 0);
-    Bitmap *image_test = new Bitmap(matrix->getMatrix(), matrix->getHeight(), matrix->getWidth(), "linea_azul.bmp");
-
+    matrix->pen(purple, 0, 49, 49, 0, 3);
+    matrix->pen(red, 0, 0, 49, 49, 2);
+    Bitmap *image_test = new Bitmap(matrix->getMatrix(), matrix->getHeight(), matrix->getWidth(), "lineas.bmp");
 }
