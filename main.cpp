@@ -12,5 +12,6 @@ int main()
 
     matrix->pen(purple, 0, 49, 49, 0, 3);
     matrix->pen(red, 0, 0, 49, 49, 2);
+    matrix->negativeFilter();
     Bitmap *image_test = new Bitmap(matrix->getMatrix(), matrix->getHeight(), matrix->getWidth(), "lineas.bmp");
 }

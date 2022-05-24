@@ -30,7 +30,7 @@ void Matrix::printMatrix()
     {
         for (int j = 0; j < width; j++)
         {
-            cout<<i<<","<<j<<": ";
+            cout << i << "," << j << ": ";
             matrix[i][j]->print();
         }
     }
@@ -72,7 +72,8 @@ void Matrix::pencil(CurrentColor color, int i, int j, int line_width)
         {
             if ((m >= 0) && (m < width) && (n >= 0) && (n < height))
             {
-                matrix[m][n]->setColor(color.getR(), color.getG(), color.getB());
+                setColor(matrix[m][n], color);
+                // matrix[m][n]->setColor(color.getR(), color.getG(), color.getB());
             }
         }
     }
@@ -121,14 +122,14 @@ void Matrix::pen(CurrentColor color, int x1, int y1, int x2, int y2, int line_wi
             {
                 if (m >= 0)
                 {
-                    for (int j = old_y+1; j <= new_y; j++)
+                    for (int j = old_y + 1; j <= new_y; j++)
                     {
                         pencil(color, j, i, line_width);
                     }
                 }
                 else
                 {
-                    for (int j = old_y-1; j >= new_y; j--)
+                    for (int j = old_y - 1; j >= new_y; j--)
                     {
                         pencil(color, j, i, line_width);
                     }
@@ -139,11 +140,44 @@ void Matrix::pen(CurrentColor color, int x1, int y1, int x2, int y2, int line_wi
     }
 }
 
+void Matrix::setColor(Pixel *pixel, CurrentColor color)
+{
+    pixel->setPixelColor(color.getR(), color.getG(), color.getB());
+}
 
+Pixel *Matrix::getPixel(int i, int j)
+{
+    return matrix[i][j];
+}
+
+void Matrix::grayScaleFilter()
+{
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            Pixel *pixel = getPixel(i, j);
+            float formula = 0.3 * (pixel->getRed()) + 0.59 * (pixel->getGreen()) + 0.11 * (pixel->getBlue());
+            setColor(matrix[i][j], CurrentColor(formula, formula, formula));
+        }
+    }
+}
+
+void Matrix::negativeFilter()
+{
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            Pixel *pixel = getPixel(i, j);
+            setColor(matrix[i][j], CurrentColor(255 - (pixel->getRed()), 255 - (pixel->getGreen()), 255 - (pixel->getBlue())));
+        }
+    }
+}
 
 void Matrix::rotate()
 {
-    //hacer que las filas sean columnas y viceversa
+    // hacer que las filas sean columnas y viceversa
 }
 
 void Matrix::deleteMatrix()

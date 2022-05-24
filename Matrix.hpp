@@ -21,6 +21,10 @@ public:
 
     void pencil(CurrentColor color, int i, int j, int line_width);
     void pen(CurrentColor color, int x1, int y1, int x2, int y2, int line_width);
+    void setColor(Pixel * pixel, CurrentColor color);
+    Pixel *getPixel(int i, int j);
+    void grayScaleFilter();
+    void negativeFilter();
     void rotate();
     void deleteMatrix();
     void switchDimentions();

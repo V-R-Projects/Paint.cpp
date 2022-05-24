@@ -8,7 +8,7 @@ class Pixel
 public:
     Pixel();
     void print();
-    void setColor(int r, int g, int b);
+    void setPixelColor(int r, int g, int b);
     int getRed();
     int getGreen();
     int getBlue();
