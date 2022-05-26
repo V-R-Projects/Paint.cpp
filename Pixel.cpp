@@ -13,6 +13,12 @@ void Pixel::setPixelColor(int r, int g, int b)
     G = g;
     B = b;
 }
+void Pixel::setPixelColor(CurrentColor color)
+{
+    R = color.getR();
+    G = color.getG();
+    B = color.getB();
+}
 
 void Pixel::print()
 {
@@ -30,4 +36,8 @@ int Pixel::getGreen()
 int Pixel::getBlue()
 {
     return B;
+}
+CurrentColor Pixel::getColor()
+{
+    return CurrentColor(R, G, B);
 }

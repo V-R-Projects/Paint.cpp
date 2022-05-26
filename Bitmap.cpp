@@ -4,7 +4,7 @@ using namespace std;
 
 Bitmap::Bitmap(Pixel ***matrix, int height, int width, char file_name[])
 {   
-    padding_bytes = 4 - (width * BITS_PER_PIXEL / 8) % 4;
+    padding_bytes = (4 - (width * BITS_PER_PIXEL / 8) % 4) % 4;
     pixel_array_size = height * width * (BITS_PER_PIXEL / 8) + padding_bytes * height;
     generateBitmapImage(matrix, height, width, file_name);
 }
@@ -34,6 +34,7 @@ unsigned char *Bitmap::createBitmapFileHeader(int height, int width)
         0, 0, 0, 0,  /// reserved
         54, 0, 0, 0, /// start of pixel array
     };
+
 
     fillFourBytes(file_header, file_size, 2);
 

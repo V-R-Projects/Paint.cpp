@@ -24,14 +24,21 @@ void Matrix::createMatrix()
     initializePixels();
 }
 
-void Matrix::printMatrix()
+void Matrix::printMatrix(Pixel ***matrix, bool traspose)
 {
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            cout << i << "," << j << ": ";
-            matrix[i][j]->print();
+            cout << i << "," << j << ": " << endl;
+            if (traspose)
+            {
+                matrix[j][i]->print();
+            }
+            else
+            {
+                matrix[i][j]->print();
+            }
         }
     }
 }
@@ -70,9 +77,10 @@ void Matrix::pencil(CurrentColor color, int i, int j, int line_width)
     {
         for (int n = j - line_width_limit; n <= j + line_width_limit; n++)
         {
-            if ((m >= 0) && (m < width) && (n >= 0) && (n < height))
+            if ((m >= 0) && (m < height) && (n >= 0) && (n < width))
             {
                 setColor(matrix[m][n], color);
+
                 // matrix[m][n]->setColor(color.getR(), color.getG(), color.getB());
             }
         }
@@ -139,6 +147,18 @@ void Matrix::pen(CurrentColor color, int x1, int y1, int x2, int y2, int line_wi
         }
     }
 }
+void Matrix::polygon(CurrentColor color, int x, int y, int l, int n, int line_width)
+{
+    const double pi = std::acos(-1);
+    float outer_angle = 2*pi / n;
+    cout << "pi: " << pi << "outer_angle: " << outer_angle << endl;
+    for (int i = 0; i < n; i++)
+    {
+        pen(color, x, y, x + (l * cos(outer_angle * i)), y + (l * sin(outer_angle * i)), line_width);
+        x = x + l * cos(outer_angle * i);
+        y = y + l * sin(outer_angle * i);
+    }
+}
 
 void Matrix::setColor(Pixel *pixel, CurrentColor color)
 {
@@ -174,19 +194,66 @@ void Matrix::negativeFilter()
         }
     }
 }
-
-void Matrix::rotate()
+void Matrix::traspose()
 {
-    // hacer que las filas sean columnas y viceversa
+    Pixel ***temp_matrix = (Pixel ***)malloc(sizeof(Pixel **) * width);
+    for (int i = 0; i < width; i++)
+    {
+        temp_matrix[i] = (Pixel **)malloc(sizeof(Pixel *) * height);
+    }
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            temp_matrix[j][i] = matrix[i][j];
+        }
+    }
+    Pixel ***matrix_to_delete = nullptr;
+    matrix_to_delete = matrix;
+    matrix = temp_matrix;
+    switchDimentions();
+
+    deleteMatrix(matrix_to_delete);
 }
 
-void Matrix::deleteMatrix()
+void Matrix::flipX()
+{
+    for (int i = 0; i < height / 2; i++)
+    {
+        // make copy of row
+        Pixel **tmp = matrix[i];
+        matrix[i] = matrix[height - 1 - i];
+        matrix[height - 1 - i] = tmp;
+    }
+}
+
+void Matrix::flipY()
 {
     for (int i = 0; i < height; i++)
     {
-        delete[] matrix[i];
+        for (int j = 0; j < width / 2; j++)
+        {
+            // swap pixels
+            Pixel *tmp = matrix[i][j];
+            matrix[i][j] = matrix[i][width - 1 - j];
+            matrix[i][width - 1 - j] = tmp;
+        }
     }
-    delete[] matrix;
+}
+
+void Matrix::rotate()
+{
+    traspose();
+    flipY();
+}
+
+void Matrix::deleteMatrix(Pixel ***temp_matrix)
+{
+    for (int i = 0; i < width; i++)
+    {
+        delete[] temp_matrix[i];
+    }
+    delete[] temp_matrix;
 }
 
 void Matrix::switchDimentions()
@@ -200,4 +267,32 @@ void Matrix::eraser(int i, int j, int eraserWidth)
 {
     CurrentColor white = CurrentColor(255, 255, 255);
     pencil(white, i, j, eraserWidth);
+}
+
+void Matrix::ramFilter()
+{
+    srand(time(NULL));
+    int add = rand() % 255;
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            matrix[i][j]->setPixelColor(matrix[i][j]->getColor().addToColor(add));
+        }
+    }
+}
+
+void Matrix::sepiaFilter()
+{
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            CurrentColor color_temp = getPixel(i, j)->getColor();
+            float newR = 0.393 * color_temp.getR() + 0.769 * color_temp.getG() + 0.189 * color_temp.getB();
+            float newG = 0.349 * color_temp.getR() + 0.686 * color_temp.getG() + 0.168 * color_temp.getB();
+            float newB = 0.272 * color_temp.getR() + 0.534 * color_temp.getG() + 0.131 * color_temp.getB();
+            setColor(getPixel(i, j), CurrentColor(newR, newG, newB));
+        }
+    }
 }

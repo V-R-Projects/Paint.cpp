@@ -15,6 +15,7 @@ public:
     int getR() { return r; };
     int getG() { return g; };
     int getB() { return b; };
+    CurrentColor addToColor(int add);
 
 private:
     int r;
@@ -22,4 +23,11 @@ private:
     int b;
 };
 
+CurrentColor CurrentColor::addToColor(int add)
+{
+    r = (r + add) % 256;
+    g = (g + add) % 256;
+    b = (b + add) % 256;
+    return CurrentColor(r, g, b);
+}
 #endif
