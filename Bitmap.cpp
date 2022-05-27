@@ -73,7 +73,7 @@ void Bitmap::fillFourBytes(unsigned char *array, int value, int init_byte)
     }
 }
 
-unsigned char *Bitmap::generateBlankCanvas(int height, int width)
+unsigned char *Bitmap::generateBlankCanvas()
 {
     unsigned char *pixel_array = (unsigned char *)malloc(pixel_array_size);
 
