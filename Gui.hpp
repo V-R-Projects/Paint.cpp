@@ -3,6 +3,7 @@
 
 #include "Matrix.hpp"
 #include "Bitmap.hpp"
+#include "Window.hpp"
 
 #include <QApplication>
 #include <QLabel>
