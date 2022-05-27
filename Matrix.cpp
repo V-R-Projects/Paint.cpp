@@ -151,13 +151,38 @@ void Matrix::polygon(CurrentColor color, int x, int y, int l, int n, int line_wi
 {
     const double pi = std::acos(-1);
     float outer_angle = 2*pi / n;
-    cout << "pi: " << pi << "outer_angle: " << outer_angle << endl;
     for (int i = 0; i < n; i++)
     {
         pen(color, x, y, x + (l * cos(outer_angle * i)), y + (l * sin(outer_angle * i)), line_width);
         x = x + l * cos(outer_angle * i);
         y = y + l * sin(outer_angle * i);
     }
+}
+
+void Matrix::rectangle(CurrentColor color, int x, int y, int b, int h, int line_width)
+{
+    pen(color, x, y, x+b, y, line_width);
+    pen(color, x+b, y, x+b, y+h, line_width);
+    pen(color, x+b, y+h, x, y+h, line_width);
+    pen(color, x, y+h, x, y, line_width);
+}
+
+void Matrix::circle(CurrentColor color, int h, int k, int r, int line_width)
+{
+    const double pi = std::acos(-1);
+    int x1 = h -r;
+    int x2 = h + r;
+    
+    for (float x = h-r; x <= h+r; x = x + 0.001)
+    {
+        int r2 = r*r;
+        float y1 = (float)sqrt((r2)-((x-h)*(x-h)))+k;
+        float y2 = (-1)*(float)sqrt((r2)-((x-h)*(x-h)))+k;
+
+        pencil(color, x, y1, line_width);
+        pencil(color, x, y2, line_width);
+    }
+
 }
 
 void Matrix::setColor(Pixel *pixel, CurrentColor color)
@@ -245,6 +270,55 @@ void Matrix::rotate()
 {
     traspose();
     flipY();
+}
+
+void Matrix::BFS(CurrentColor picked_color, CurrentColor new_color, int x, int y)
+{
+    memoryFlag++;
+    if (x < width && y < height && x >= 0 && y >= 0 && memoryFlag < 350*350)
+    {
+        int picked_red = picked_color.getR();
+        int picked_green = picked_color.getG();
+        int picked_blue = picked_color.getB();
+
+        CurrentColor current_color = getPixel(x, y)->getColor();
+        int current_red = current_color.getR();
+        int current_green = current_color.getG();
+        int current_blue = current_color.getB();
+
+        if (current_blue == picked_blue && current_green == picked_green && current_red == picked_red)
+        {
+            setColor(getPixel(x, y), new_color);
+            BFS(picked_color, new_color, x-1, y);
+            BFS(picked_color, new_color, x+1, y);
+            BFS(picked_color, new_color, x, y-1);
+            BFS(picked_color, new_color, x, y+1);
+        }
+    
+    }
+}
+
+void Matrix::paintFill(CurrentColor picked_color, CurrentColor new_color, int x, int y)
+{
+    setMemoryFlag(0);
+    
+    int picked_red = picked_color.getR();
+    int picked_green = picked_color.getG();
+    int picked_blue = picked_color.getB();
+
+    int new_red = new_color.getR();
+    int new_green = new_color.getG();
+    int new_blue = new_color.getB();
+
+    if (picked_red != new_red && picked_green != new_green && picked_blue != new_blue)
+    {
+        BFS(picked_color, new_color, x, y);
+    }
+}
+
+void Matrix::setMemoryFlag(int flag)
+{
+    memoryFlag = flag;
 }
 
 void Matrix::deleteMatrix(Pixel ***temp_matrix)
