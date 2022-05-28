@@ -55,12 +55,14 @@ OBJECTS_DIR   = ./
 SOURCES       = Bitmap.cpp \
 		CurrentColor.cpp \
 		main.cpp \
-		Matrix.cpp moc_RenderArea.cpp \
+		Matrix.cpp moc_InitWindow.cpp \
+		moc_RenderArea.cpp \
 		moc_Window.cpp
 OBJECTS       = Bitmap.o \
 		CurrentColor.o \
 		main.o \
 		Matrix.o \
+		moc_InitWindow.o \
 		moc_RenderArea.o \
 		moc_Window.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -140,6 +142,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		Paint.cpp.pro Bitmap.hpp \
 		CurrentColor.hpp \
+		InitWindow.hpp \
 		Matrix.hpp \
 		Pixel.hpp \
 		RenderArea.hpp \
@@ -326,7 +329,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents Bitmap.hpp CurrentColor.hpp Matrix.hpp Pixel.hpp RenderArea.hpp Window.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents Bitmap.hpp CurrentColor.hpp InitWindow.hpp Matrix.hpp Pixel.hpp RenderArea.hpp Window.hpp $(DISTDIR)/
 	$(COPY_FILE) --parents Bitmap.cpp CurrentColor.cpp main.cpp Matrix.cpp $(DISTDIR)/
 
 
@@ -359,16 +362,35 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_RenderArea.cpp moc_Window.cpp
+compiler_moc_header_make_all: moc_InitWindow.cpp moc_RenderArea.cpp moc_Window.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_RenderArea.cpp moc_Window.cpp
+	-$(DEL_FILE) moc_InitWindow.cpp moc_RenderArea.cpp moc_Window.cpp
+moc_InitWindow.cpp: InitWindow.hpp \
+		Window.hpp \
+		RenderArea.hpp \
+		Matrix.hpp \
+		Pixel.hpp \
+		CurrentColor.hpp \
+		Bitmap.hpp \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ramsensei/Desktop/Ramsensei/Paint.cpp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include InitWindow.hpp -o moc_InitWindow.cpp
+
 moc_RenderArea.cpp: RenderArea.hpp \
+		Matrix.hpp \
+		Pixel.hpp \
+		CurrentColor.hpp \
+		Bitmap.hpp \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ramsensei/Desktop/Ramsensei/Paint.cpp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include RenderArea.hpp -o moc_RenderArea.cpp
 
 moc_Window.cpp: Window.hpp \
 		RenderArea.hpp \
+		Matrix.hpp \
+		Pixel.hpp \
+		CurrentColor.hpp \
+		Bitmap.hpp \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ramsensei/Desktop/Ramsensei/Paint.cpp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Window.hpp -o moc_Window.cpp
@@ -400,14 +422,23 @@ CurrentColor.o: CurrentColor.cpp CurrentColor.hpp
 main.o: main.cpp Window.cpp \
 		Window.hpp \
 		RenderArea.hpp \
-		RenderArea.cpp
+		Matrix.hpp \
+		Pixel.hpp \
+		CurrentColor.hpp \
+		Bitmap.hpp \
+		Pixel.cpp \
+		RenderArea.cpp \
+		InitWindow.cpp \
+		InitWindow.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 Matrix.o: Matrix.cpp Matrix.hpp \
-		Pixel.cpp \
 		Pixel.hpp \
 		CurrentColor.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Matrix.o Matrix.cpp
+
+moc_InitWindow.o: moc_InitWindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_InitWindow.o moc_InitWindow.cpp
 
 moc_RenderArea.o: moc_RenderArea.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_RenderArea.o moc_RenderArea.cpp

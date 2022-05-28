@@ -1,16 +1,21 @@
 #include "RenderArea.hpp"
 
-RenderArea::RenderArea(QWidget *parent)
+RenderArea::RenderArea(int width, int heigth, QWidget *parent)
     : QWidget(parent)
 {
-    shape = Polygon;
-    antialiased = false;
-    transformed = false;
+    shape = Pencil;
+    filter = None;
+    isSecondPoint = false;
 
-    this->matrix = new Matrix(200, 200);
+
+    this->matrix = new Matrix(width, heigth);
+
+    matrix->pen(CurrentColor(254, 0, 0), 0, 0, 199, 99, 3);
+    matrix->circle(CurrentColor(0, 0, 0), 100, 100, 50, 2);
 
     setBackgroundRole(QPalette::Window);
     setAutoFillBackground(true);
+    color = Qt::black;
 }
 
 QSize RenderArea::sizeHint() const
@@ -26,13 +31,39 @@ QSize RenderArea::minimumSizeHint() const
 void RenderArea::setShape(Shape shape)
 {
     this->shape = shape;
+    isSecondPoint = false;
     update();
 }
 
-void RenderArea::setPen(const QPen &pen)
+void RenderArea::setFilter(Filter filter)
 {
-    this->pen = pen;
+    this->filter = filter;
+    switch (filter)
+    {
+    case BlackAndWhite:
+        matrix->grayScaleFilter();
+        break;
+    case Sepia:
+        matrix->sepiaFilter();
+        break;
+    case Negative:
+        matrix->negativeFilter();
+        break;
+    case Random:
+        matrix->ramFilter();
+        break;
+    }
     update();
+}
+
+void RenderArea::setPenWidth(int pen)
+{
+    this->penWidth = pen + 2;
+}
+
+void RenderArea::setColor(QColor color)
+{
+    this->color = color;
 }
 
 void RenderArea::setBrush(const QBrush &brush)
@@ -41,135 +72,167 @@ void RenderArea::setBrush(const QBrush &brush)
     update();
 }
 
-void RenderArea::setAntialiased(bool antialiased)
+void RenderArea::rotateRight()
 {
-    this->antialiased = antialiased;
+    this->matrix->rotate();
     update();
 }
 
-void RenderArea::setTransformed(bool transformed)
+void RenderArea::rotateLeft()
 {
-    this->transformed = transformed;
+    this->matrix->rotate();
+    this->matrix->rotate();
+    this->matrix->rotate();
     update();
 }
 
-// void RenderArea::paintEvent(QPaintEvent * /* event */)
-// {
-//     static const QPoint points[4] = {
-//         QPoint(10, 80),
-//         QPoint(20, 10),
-//         QPoint(80, 30),
-//         QPoint(90, 70)
-//     };
+void RenderArea::flipHorizontal()
+{
+    this->matrix->flipY();
+    update();
+}
 
-//     QRect rect(10, 20, 80, 60);
+void RenderArea::flipVertical()
+{
+    this->matrix->flipX();
+    update();
+}
 
-//     QPainterPath path;
-//     path.moveTo(20, 80);
-//     path.lineTo(20, 30);
-//     path.cubicTo(80, 0, 50, 50, 80, 80);
-
-//     int startAngle = 20 * 16;
-//     int arcLength = 120 * 16;
-
-//     QPainter painter(this);
-//     painter.setPen(pen);
-//     painter.setBrush(brush);int x = width() / 2 - matrix->getWidth() / 2;
-    // int y = height() / 2 - matrix->getHeight() / 2;Painter::Antialiasing, true);
-
-//     for (int x = 0; x < width(); x += 100) {
-//         for (int y = 0; y < height(); y += 100) {
-//             painter.save();
-//             painter.translate(x, y);
-//             if (transformed) {
-//                 painter.translate(50, 50);
-//                 painter.rotate(60.0);
-//                 painter.scale(0.6, 0.9);
-//                 painter.translate(-50, -50);
-//             }
-//             switch (shape) {
-//             case Line:
-//                 painter.drawLine(rect.bottomLeft(), rect.topRight());
-//                 break;
-//             case Points:
-//                 painter.drawPoints(points, 4);
-//                 break;
-//             case Polyline:
-//                 painter.drawPolyline(points, 4);
-//                 break;
-//             case Polygon:
-//                 painter.drawPolygon(points, 4);
-//                 break;
-//             case Rect:
-//                 painter.drawRect(rect);
-//                 break;
-//             case RoundedRect:
-//                 painter.drawRoundedRect(rect, 25, 25, Qt::RelativeSize);
-//                 break;
-//             case Ellipse:
-//                 painter.drawEllipse(rect);
-//                 break;
-//             case Arc:
-//                 painter.drawArc(rect, startAngle, arcLength);
-//                 break;
-//             case Chord:
-//                 painter.drawChord(rect, startAngle, arcLength);
-//                 break;
-//             case Pie:
-//                 painter.drawPie(rect, startAngle, arcLength);
-//                 break;
-//             case Path:
-//                 painter.drawPath(path);
-//                 break;
-//             case Text:
-//                 painter.drawText(rect,
-//                                 Qt::AlignCenter,
-//                                 tr("Qt by\nThe Qt Company"));
-//                 break;
-//             }
-//             painter.restore();
-//         }
-//     }
-
-//     painter.setRenderHint(QPainter::Antialiasing, false);
-//     painter.setPen(palette().dark().color());
-//     painter.setBrush(Qt::NoBrush);
-//     painter.drawRect(QRect(0, 0, width() - 1, height() - 1));
-// }
+void RenderArea::save(char *name)
+{
+    Bitmap *bitmap = new Bitmap(matrix->getMatrix(), matrix->getWidth(), matrix->getHeight(), name);
+}
 
 void RenderArea::paintEvent(QPaintEvent * /* event */)
 {
-    matrix->pen(CurrentColor(254, 0, 0), 0, 0, 199, 199, 3);
-    matrix->circle(CurrentColor(0, 0, 0), 100, 100, 50, 2);
 
     int x = width() / 2 - matrix->getWidth() / 2;
     int y = height() / 2 - matrix->getHeight() / 2;
-
     QPainter painter(this);
-    painter.setBrush(brush);
-    if (antialiased)
-        painter.setRenderHint(QPainter::Antialiasing, true);
 
     painter.translate(x, y);
-    for (int i = 0; i < matrix->getHeight(); i ++) {
-        for (int j = 0; j < matrix->getWidth(); j ++) {
-            pen.setColor(QColor(
-                matrix->getPixel(i, j)->getRed(),
-                matrix->getPixel(i, j)->getGreen(),
-                matrix->getPixel(i, j)->getBlue()));
-            painter.setPen(pen);
-            painter.save();
-            painter.drawPoint(i, j);
+    {
+        for (int i = 0; i < matrix->getHeight(); i++)
+        {
+            for (int j = 0; j < matrix->getWidth(); j++)
+            {
+                pen.setColor(QColor(
+                    matrix->getPixel(i, j)->getRed(),
+                    matrix->getPixel(i, j)->getGreen(),
+                    matrix->getPixel(i, j)->getBlue()));
+                painter.setPen(pen);
+                painter.save();
+                painter.drawPoint(j, i);
+            }
         }
+        painter.restore();
     }
-    painter.restore();
 }
 
 void RenderArea::mousePressEvent(QMouseEvent *event)
 {
     int x_margin = width() / 2 - matrix->getWidth() / 2;
     int y_margin = height() / 2 - matrix->getHeight() / 2;
-    matrix->pencil(CurrentColor(0, 0, 0), event->x() - x_margin, event->y() - y_margin, 1);
+
+    int x = event->x() - x_margin;
+    int y = event->y() - y_margin;
+
+    lastPoint = currentPoint;
+    currentPoint = QPoint(x, y);
+
+    switch (shape)
+    {
+    case Pencil:
+        // doPencil();
+        break;
+    case Pen:
+        if (isSecondPoint)
+        {
+            doPen();
+            isSecondPoint = false;
+        }
+        else
+        {
+            isSecondPoint = true;
+        }
+        break;
+    case Eraser:
+        doEraser();
+        break;
+    case Square:
+        if (isSecondPoint)
+        {
+            doSquare();
+            isSecondPoint = false;
+        }
+        else
+        {
+            isSecondPoint = true;
+        }
+        break;
+    case Rectangle:
+        if (isSecondPoint)
+        {
+            doRectangle();
+            isSecondPoint = false;
+        }
+        else
+        {
+            isSecondPoint = true;
+        }
+        break;
+    case Triangle:
+        if (isSecondPoint)
+        {
+            doTriangle();
+            isSecondPoint = false;
+        }
+        else
+        {
+            isSecondPoint = true;
+        }
+        break;
+    case Pentagon:
+        if (isSecondPoint)
+        {
+            doPentagon();
+            isSecondPoint = false;
+        }
+        else
+        {
+            isSecondPoint = true;
+        }
+        break;
+    case Hexagon:
+        if (isSecondPoint)
+        {
+            doHexagon();
+            isSecondPoint = false;
+        }
+        else
+        {
+            isSecondPoint = true;
+        }
+        break;
+    case Circle:
+        if (isSecondPoint)
+        {
+            doCircle();
+            isSecondPoint = false;
+        }
+        else
+        {
+            isSecondPoint = true;
+        }
+        break;
+    case PaintFill:
+        doPaintFill();
+        break;
+    case ColorPicker:
+        doColorPicker();
+        break;
+    }
+
     update();
 }
 
@@ -177,6 +240,87 @@ void RenderArea::mouseMoveEvent(QMouseEvent *event)
 {
     int x_margin = width() / 2 - matrix->getWidth() / 2;
     int y_margin = height() / 2 - matrix->getHeight() / 2;
-    matrix->pencil(CurrentColor(0, 0, 0), event->x() - x_margin, event->y() - y_margin, 1);
+
+    int x = event->x() - x_margin;
+    int y = event->y() - y_margin;
+
+    lastPoint = currentPoint;
+    currentPoint = QPoint(x, y);
+    switch (shape)
+    {
+    case Pencil:
+        doPen();
+        break;
+    case Eraser:
+        doEraser();
+        break;
+    default:
+        break;
+    }
+
+    update();
+    
+}
+
+void RenderArea::mouseReleaseEvent(QMouseEvent * /* event */)
+{
     update();
 }
+
+void RenderArea::doPencil()
+{
+    matrix->pencil(CurrentColor(color.red(), color.green(), color.blue()), currentPoint.y(), currentPoint.x(), penWidth);
+}
+
+void RenderArea::doPen()
+{
+    matrix->pen(CurrentColor(color.red(), color.green(), color.blue()), lastPoint.x(), lastPoint.y(), currentPoint.x(), currentPoint.y(), penWidth);
+}
+
+void RenderArea::doEraser()
+{
+    matrix->pen(CurrentColor(255, 255, 255), lastPoint.x(), lastPoint.y(), currentPoint.x(), currentPoint.y(), penWidth);
+}
+
+void RenderArea::doSquare()
+{
+    matrix->rectangle(CurrentColor(color.red(), color.green(), color.blue()), lastPoint.x(), lastPoint.y(), currentPoint.x() - lastPoint.x(), currentPoint.x() - lastPoint.x(), penWidth);
+}
+
+void RenderArea::doRectangle()
+{
+    matrix->rectangle(CurrentColor(color.red(), color.green(), color.blue()), lastPoint.x(), lastPoint.y(), currentPoint.x() - lastPoint.x(), currentPoint.y() - lastPoint.y(), penWidth);
+}
+
+void RenderArea::doTriangle()
+{
+    matrix->polygon(CurrentColor(color.red(), color.green(), color.blue()), lastPoint.x(), lastPoint.y(), currentPoint.x() - lastPoint.x(), 3, penWidth);
+}
+
+void RenderArea::doPentagon()
+{
+    matrix->polygon(CurrentColor(color.red(), color.green(), color.blue()), lastPoint.x(), lastPoint.y(), currentPoint.x() - lastPoint.x(), 5, penWidth);
+}
+
+void RenderArea::doHexagon()
+{
+    matrix->polygon(CurrentColor(color.red(), color.green(), color.blue()), lastPoint.x(), lastPoint.y(), currentPoint.x() - lastPoint.x(), 6, penWidth);
+}
+
+void RenderArea::doCircle()
+{
+    matrix->circle(CurrentColor(color.red(), color.green(), color.blue()), lastPoint.y(), lastPoint.x(), currentPoint.x() - lastPoint.x(), penWidth);
+}
+
+void RenderArea::doPaintFill()
+{
+    matrix->paintFill(matrix->getPixel(currentPoint.y(), currentPoint.x())->getColor(), CurrentColor(color.red(), color.green(), color.blue()), currentPoint.y(), currentPoint.x());
+}
+
+QColor RenderArea::doColorPicker()
+{
+    CurrentColor c = matrix->getPixel(currentPoint.x(), currentPoint.y())->getColor();
+}
+
+
+

@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Fri May 27 11:16:33 2022
+# Make data base, printed on Sat May 28 15:32:18 2022
 
 # Variables
 
@@ -21,7 +20,7 @@ GNUMAKEFLAGS :=
 DESKTOP_SESSION = ubuntu
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 150)
+# makefile (from 'Makefile', line 153)
 QMAKE_TARGET = main
 # environment
 XDG_SESSION_CLASS = user
@@ -31,12 +30,10 @@ SNAP_COMMON = /var/snap/code/common
 XDG_SESSION_TYPE = x11
 # environment
 VSCODE_LOG_NATIVE = false
-# makefile (from 'Makefile', line 152)
+# makefile (from 'Makefile', line 155)
 TARGET = main
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -56,7 +53,7 @@ SNAP_DATA = /var/snap/code/97
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:54477
+JOURNAL_STREAM = 8:53575
 # makefile (from 'Makefile', line 18)
 CFLAGS = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 # environment
@@ -70,11 +67,11 @@ MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+IM_CONFIG_PHASE = 1
 # environment
 USERNAME = ramsensei
 # makefile (from 'Makefile', line 55)
-SOURCES = Bitmap.cpp CurrentColor.cpp main.cpp Matrix.cpp moc_RenderArea.cpp moc_Window.cpp
+SOURCES = Bitmap.cpp CurrentColor.cpp main.cpp Matrix.cpp moc_InitWindow.cpp moc_RenderArea.cpp moc_Window.cpp
 # makefile (from 'Makefile', line 19)
 CXXFLAGS = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 # environment
@@ -87,13 +84,10 @@ XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/d
 COPY = cp -f
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
- 
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-_ = /snap/code/97/usr/share/code/code
-# environment
-MANAGERPID = 1604
+MANAGERPID = 1492
 # makefile (from 'Makefile', line 11)
 EQ = =
 # environment
@@ -103,33 +97,36 @@ COMPRESS = gzip -9f
 # environment
 LC_NAME = es_CR.UTF-8
 # environment
-VSCODE_CWD = /home/ramsensei
+VSCODE_CWD = /home/ramsensei/Desktop/Ramsensei/Paint.cpp
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/97/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/ramsensei/.local/bin:/home/ramsensei/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH = /home/ramsensei/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # makefile (from 'Makefile', line 9)
 MAKEFILE = Makefile
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/RamsenseisPC:@/tmp/.ICE-unix/1848,unix/RamsenseisPC:/tmp/.ICE-unix/1848
+SESSION_MANAGER = local/RamsenseisPC:@/tmp/.ICE-unix/1723,unix/RamsenseisPC:/tmp/.ICE-unix/1723
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/ramsensei/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
 SNAP = /snap/code/97
+# environment
+WINDOWID = 29360132
 # makefile (from 'Makefile', line 23)
 CHK_DIR_EXISTS = test -d
+# environment
+ALACRITTY_LOG = /tmp/Alacritty-6766.log
 # environment
 SNAP_VERSION = c3511e6c
 # makefile (from 'Makefile', line 44)
 AR = ar cqs
 # environment
- 
 XDG_MENU_PREFIX = gnome-
 # environment
 VSCODE_LOG_STACK = false
@@ -138,7 +135,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 317e758d259e43a28cf25d5137255879
+INVOCATION_ID = 91ad6abcb84744b39a3daf5faa1e5178
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/97/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -146,13 +143,13 @@ GDK_PIXBUF_MODULEDIR = /snap/code/97/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.1
 # makefile (from 'Makefile', line 32)
 QINSTALL_PROGRAM = /usr/lib/qt5/bin/qmake -install qinstall -exe
 # environment
-LS_COLORS = 
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2746
+GIO_LAUNCHED_DESKTOP_FILE_PID = 6766
 # automatic
 %F = $(notdir $%)
 # environment
@@ -165,11 +162,10 @@ VSCODE_PIPE_LOGGING = true
 SNAP_INSTANCE_KEY = 
 # environment
 PWD = /home/ramsensei/Desktop/Ramsensei/Paint.cpp
- 
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1799
+SSH_AGENT_PID = 1672
 # makefile (from 'Makefile', line 28)
 INSTALL_FILE = install -m 644 -p
 # environment
@@ -197,7 +193,7 @@ TAR = tar -cf
 # environment
 LOGNAME = ramsensei
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # environment
@@ -208,7 +204,6 @@ RANLIB =
 +F = $(notdir $+)
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
- 
 # environment
 SNAP_USER_COMMON = /home/ramsensei/snap/code/common
 # environment
@@ -225,6 +220,8 @@ DISTDIR = /home/ramsensei/Desktop/Ramsensei/Paint.cpp/.tmp/main1.0.0
 LC_TIME = es_CR.UTF-8
 # environment
 SNAP_REAL_HOME = /home/ramsensei
+# environment
+COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -236,15 +233,14 @@ SNAP_USER_DATA = /home/ramsensei/snap/code/97
 # makefile (from 'Makefile', line 34)
 SYMLINK = ln -f -s
 # environment
-SHLVL = 0
+SHLVL = 1
 # makefile (from 'Makefile', line 15)
 CC = gcc
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-cf13deab-39a3-4bb2-8728-806d701a8f5c.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-b1010c23-2351-4f07-8223-e6f7a6b25874.sock
 # default
- 
 MAKE_VERSION := 4.2.1
 # environment
 USER = ramsensei
@@ -256,7 +252,7 @@ LC_MONETARY = es_CR.UTF-8
 .DEFAULT_GOAL := first
 # environment
 XDG_CURRENT_DESKTOP = Unity
-# makefile (from 'Makefile', line 151)
+# makefile (from 'Makefile', line 154)
 DESTDIR = 
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
@@ -266,6 +262,8 @@ LC_TELEPHONE = es_CR.UTF-8
 LFLAGS = -Wl,-O1
 # default
 MAKE_COMMAND := make
+# environment
+OLDPWD = /home/ramsensei
 # default
 .VARIABLES := 
 # makefile (from 'Makefile', line 36)
@@ -274,14 +272,12 @@ MOVE = mv -f
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-6529fc72-1.67.2-main.sock
-# environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile (from 'Makefile', line 51)
 OBJECTS_DIR = ./
 # makefile (from 'Makefile', line 31)
 QINSTALL = /usr/lib/qt5/bin/qmake -install qinstall
-# makefile
  
+# makefile
 MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
@@ -293,8 +289,6 @@ MFLAGS = -pqrR
 GDK_BACKEND = x11
 # environment
 LC_PAPER = es_CR.UTF-8
-# environment
-LC_IDENTIFICATION = es_CR.UTF-8
 # makefile (from 'Makefile', line 47)
 STRIP = strip
 # environment
@@ -319,15 +313,12 @@ LC_ALL = C
 INSTALL_PROGRAM = install -m 755 -p
 # makefile (from 'Makefile', line 33)
 DEL_FILE = rm -f
-# environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # makefile (from 'Makefile', line 43)
 LIBS = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so /usr/lib/x86_64-linux-gnu/libGL.so -lpthread   
 # automatic
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
- 
 # environment
 SNAP_REEXEC = 
 # environment
@@ -343,23 +334,25 @@ COPY_DIR = cp -f -R
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-GJS_DEBUG_OUTPUT = stderr
+LC_IDENTIFICATION = es_CR.UTF-8
 # default
 .RECIPEPREFIX := 
-# makefile (from 'Makefile', line 60)
-OBJECTS = Bitmap.o CurrentColor.o main.o Matrix.o moc_RenderArea.o moc_Window.o
-# makefile (from 'Makefile', line 66)
-DIST = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/sanitize.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_edid_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_egl_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fb_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fontdatabase_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_glx_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_input_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf .qmake.stash /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qmake_use.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf Paint.cpp.pro Bitmap.hpp CurrentColor.hpp Matrix.hpp Pixel.hpp RenderArea.hpp Window.hpp Bitmap.cpp CurrentColor.cpp main.cpp Matrix.cpp
+# makefile (from 'Makefile', line 61)
+OBJECTS = Bitmap.o CurrentColor.o main.o Matrix.o moc_InitWindow.o moc_RenderArea.o moc_Window.o
+# makefile (from 'Makefile', line 68)
+DIST = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/sanitize.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_edid_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_egl_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fb_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fontdatabase_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_glx_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_input_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf .qmake.stash /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qmake_use.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf Paint.cpp.pro Bitmap.hpp CurrentColor.hpp InitWindow.hpp Matrix.hpp Pixel.hpp RenderArea.hpp Window.hpp Bitmap.cpp CurrentColor.cpp main.cpp Matrix.cpp
 # environment
 LC_ADDRESS = es_CR.UTF-8
 # environment
 LANG = C
+# environment
+TERM = xterm-256color
 # makefile (from 'Makefile', line 35)
 DEL_DIR = rmdir
 # environment
-VSCODE_PID = 2792
+VSCODE_PID = 6836
 # variable set hash-table stats:
-# Load=170/1024=17%, Rehash=0, Collisions=30/197=15%
+# Load=170/1024=17%, Rehash=0, Collisions=26/197=13%
 
 # Pattern-specific Variable Values
 
@@ -367,9 +360,9 @@ VSCODE_PID = 2792
 
 # Directories
 
-# . (device 2052, inode 1841075): 32 files, no impossibilities.
+# . (device 2052, inode 1841075): 41 files, no impossibilities.
 
-# 32 files, no impossibilities in 1 directories.
+# 41 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -397,7 +390,6 @@ compiler_uic_make_all:
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
 #  Implicit rule search has been done.
- 
 #  Last modified 2020-01-22 06:17:20
 #  File has been updated.
 #  Successfully updated.
@@ -414,19 +406,26 @@ compiler_uic_make_all:
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+InitWindow.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-27 23:17:49.303850486
+#  File has been updated.
+#  Successfully updated.
+
 Bitmap.o: Bitmap.cpp Bitmap.hpp Pixel.hpp CurrentColor.hpp
 #  Implicit rule search has not been done.
 #  Last modified 2022-05-27 11:12:20.149264747
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 395):
+#  recipe to execute (from 'Makefile', line 417):
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Bitmap.o Bitmap.cpp
 
 compiler_moc_predefs_clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 358):
+#  recipe to execute (from 'Makefile', line 361):
 	-$(DEL_FILE) moc_predefs.h
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri:
@@ -435,7 +434,6 @@ compiler_moc_predefs_clean:
 #  File has been updated.
 #  Successfully updated.
 
- 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri:
 #  Implicit rule search has been done.
 #  Last modified 2022-01-05 12:54:17
@@ -473,7 +471,6 @@ FORCE:
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf:
 #  Implicit rule search has been done.
- 
 #  Last modified 2020-01-22 06:17:20
 #  File has been updated.
 #  Successfully updated.
@@ -482,7 +479,6 @@ FORCE:
 #  Implicit rule search has been done.
 #  Last modified 2022-01-05 12:54:17
 #  File has been updated.
- 
 #  Successfully updated.
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri:
@@ -499,7 +495,7 @@ compiler_yacc_impl_clean:
 # Not a target:
 Matrix.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-27 11:09:05.227295773
+#  Last modified 2022-05-27 11:33:02.971623572
 #  File has been updated.
 #  Successfully updated.
 
@@ -507,7 +503,7 @@ distclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 339):
+#  recipe to execute (from 'Makefile', line 342):
 	-$(DEL_FILE) $(TARGET) 
 	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
@@ -541,7 +537,6 @@ compiler_moc_source_make_all:
 #  File has not been updated.
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri:
- 
 #  Implicit rule search has been done.
 #  Last modified 2022-01-05 12:54:17
 #  File has been updated.
@@ -554,6 +549,7 @@ compiler_moc_source_make_all:
 #  Successfully updated.
 
 uninstall: FORCE
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -564,12 +560,20 @@ uninstall: FORCE
 #  File has been updated.
 #  Successfully updated.
 
-Makefile: Paint.cpp.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/sanitize.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_edid_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_egl_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fb_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fontdatabase_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_glx_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_input_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf .qmake.stash /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qmake_use.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf Paint.cpp.pro
+moc_InitWindow.cpp: InitWindow.hpp Window.hpp RenderArea.hpp Matrix.hpp Pixel.hpp CurrentColor.hpp Bitmap.hpp moc_predefs.h /usr/lib/qt5/bin/moc
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-27 11:15:55.134225923
+#  Last modified 2022-05-28 03:52:12.519071285
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 237):
+#  recipe to execute (from 'Makefile', line 377):
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ramsensei/Desktop/Ramsensei/Paint.cpp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include InitWindow.hpp -o moc_InitWindow.cpp
+
+Makefile: Paint.cpp.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/sanitize.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_accessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_edid_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_egl_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfsdeviceintegration_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fb_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_fontdatabase_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_glx_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_input_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_kms_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformcompositor_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_theme_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_vulkan_support_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf .qmake.stash /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qmake_use.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf Paint.cpp.pro
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-28 15:32:18.519587911
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 240):
 	$(QMAKE) -o Makefile Paint.cpp.pro
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf:
@@ -651,21 +655,21 @@ moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 #  Last modified 2022-05-27 11:14:06.395889702
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 360):
+#  recipe to execute (from 'Makefile', line 363):
 	g++ -pipe -O2 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
 moc_RenderArea.o: moc_RenderArea.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-27 11:14:07.387912505
+#  Last modified 2022-05-28 03:52:14.923073847
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 413):
+#  recipe to execute (from 'Makefile', line 444):
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_RenderArea.o moc_RenderArea.cpp
 
 # Not a target:
 main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-27 11:03:31.868059027
+#  Last modified 2022-05-27 23:36:35.827547978
 #  File has been updated.
 #  Successfully updated.
 
@@ -676,7 +680,6 @@ main.cpp:
 #  Successfully updated.
 
 compiler_yacc_decl_make_all:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -685,8 +688,8 @@ compiler_moc_header_clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 364):
-	-$(DEL_FILE) moc_RenderArea.cpp moc_Window.cpp
+#  recipe to execute (from 'Makefile', line 367):
+	-$(DEL_FILE) moc_InitWindow.cpp moc_RenderArea.cpp moc_Window.cpp
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_service_support_private.pri:
 #  Implicit rule search has been done.
@@ -695,6 +698,7 @@ compiler_moc_header_clean:
 #  Successfully updated.
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_linuxaccessibility_support_private.pri:
+ 
 #  Implicit rule search has been done.
 #  Last modified 2022-01-05 12:54:17
 #  File has been updated.
@@ -725,12 +729,12 @@ CurrentColor.hpp:
 #  File has been updated.
 #  Successfully updated.
 
-Matrix.o: Matrix.cpp Matrix.hpp Pixel.cpp Pixel.hpp CurrentColor.hpp
+Matrix.o: Matrix.cpp Matrix.hpp Pixel.hpp CurrentColor.hpp
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-27 11:14:06.383889425
+#  Last modified 2022-05-27 11:33:52.772085984
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 410):
+#  recipe to execute (from 'Makefile', line 438):
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Matrix.o Matrix.cpp
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_kms_support_private.pri:
@@ -763,12 +767,12 @@ compiler_moc_predefs_make_all: moc_predefs.h
 #  File has been updated.
 #  Successfully updated.
 
-moc_Window.cpp: Window.hpp RenderArea.hpp moc_predefs.h /usr/lib/qt5/bin/moc
+moc_Window.cpp: Window.hpp RenderArea.hpp Matrix.hpp Pixel.hpp CurrentColor.hpp Bitmap.hpp moc_predefs.h /usr/lib/qt5/bin/moc
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-27 11:14:07.519915536
+#  Last modified 2022-05-28 03:52:15.067074001
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 374):
+#  recipe to execute (from 'Makefile', line 396):
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ramsensei/Desktop/Ramsensei/Paint.cpp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Window.hpp -o moc_Window.cpp
 
 # Not a target:
@@ -780,13 +784,14 @@ Pixel.hpp:
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2020-01-22 06:17:20
 #  File has been updated.
 #  Successfully updated.
 
 Paint.cpp.pro:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-27 11:15:49.262107642
+#  Last modified 2022-05-27 22:55:39.322055551
 #  File has been updated.
 #  Successfully updated.
 
@@ -888,7 +893,7 @@ qmake: FORCE
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 315):
+#  recipe to execute (from 'Makefile', line 318):
 	@$(QMAKE) -o Makefile Paint.cpp.pro
 
 compiler_moc_objc_header_clean:
@@ -899,8 +904,7 @@ compiler_moc_objc_header_clean:
 # Not a target:
 Matrix.cpp:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-05-27 11:03:31.864059028
+#  Last modified 2022-05-27 11:33:47.128033955
 #  File has been updated.
 #  Successfully updated.
 
@@ -926,7 +930,7 @@ Pixel.cpp:
 # Not a target:
 Window.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-27 11:03:31.864059028
+#  Last modified 2022-05-28 03:53:19.563146644
 #  File has been updated.
 #  Successfully updated.
 
@@ -936,10 +940,18 @@ Window.cpp:
 #  File has been updated.
 #  Successfully updated.
 
+moc_InitWindow.o: moc_InitWindow.cpp
+#  Implicit rule search has not been done.
+#  Last modified 2022-05-28 03:52:13.703072545
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 441):
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_InitWindow.o moc_InitWindow.cpp
+
 # Not a target:
 RenderArea.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-27 11:03:31.864059028
+#  Last modified 2022-05-28 03:54:37.97524416
 #  File has been updated.
 #  Successfully updated.
 
@@ -948,7 +960,7 @@ mocables: compiler_moc_header_make_all compiler_moc_objc_header_make_all compile
 #  Modification time never checked.
 #  File has not been updated.
 
-compiler_moc_header_make_all: moc_RenderArea.cpp moc_Window.cpp
+compiler_moc_header_make_all: moc_InitWindow.cpp moc_RenderArea.cpp moc_Window.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -964,7 +976,7 @@ CurrentColor.o: CurrentColor.cpp CurrentColor.hpp
 #  Last modified 2022-05-27 11:12:20.445272597
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 398):
+#  recipe to execute (from 'Makefile', line 420):
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CurrentColor.o CurrentColor.cpp
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf:
@@ -983,7 +995,7 @@ dist: distdir FORCE
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 323):
+#  recipe to execute (from 'Makefile', line 326):
 	(cd `dirname $(DISTDIR)` && $(TAR) $(DISTNAME).tar $(DISTNAME) && $(COMPRESS) $(DISTNAME).tar) && $(MOVE) `dirname $(DISTDIR)`/$(DISTNAME).tar.gz . && $(DEL_FILE) -r $(DISTDIR)
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri:
@@ -1051,6 +1063,7 @@ Bitmap.hpp:
 #  Last modified 2022-01-05 12:54:17
 #  File has been updated.
 #  Successfully updated.
+ 
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 #  Implicit rule search has been done.
@@ -1069,20 +1082,20 @@ compiler_moc_source_clean:
 #  File has been updated.
 #  Successfully updated.
 
-main: Bitmap.o CurrentColor.o main.o Matrix.o moc_RenderArea.o moc_Window.o
+main: Bitmap.o CurrentColor.o main.o Matrix.o moc_InitWindow.o moc_RenderArea.o moc_Window.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-27 11:15:58.070284751
+#  Last modified 2022-05-28 03:54:56.107268017
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 159):
+#  recipe to execute (from 'Makefile', line 162):
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
-main.o: main.cpp Window.cpp Window.hpp RenderArea.hpp RenderArea.cpp
+main.o: main.cpp Window.cpp Window.hpp RenderArea.hpp Matrix.hpp Pixel.hpp CurrentColor.hpp Bitmap.hpp Pixel.cpp RenderArea.cpp InitWindow.cpp InitWindow.hpp
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-27 11:14:05.947879396
+#  Last modified 2022-05-28 03:54:55.775267576
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 404):
+#  recipe to execute (from 'Makefile', line 433):
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
@@ -1105,7 +1118,7 @@ qmake_all: FORCE
 # Not a target:
 RenderArea.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-27 11:03:31.864059028
+#  Last modified 2022-05-28 03:41:48.602983512
 #  File has been updated.
 #  Successfully updated.
 
@@ -1113,7 +1126,6 @@ RenderArea.hpp:
 /usr/lib/qt5/bin/moc:
 #  Implicit rule search has been done.
 #  Last modified 2022-01-05 12:54:17
- 
 #  File has been updated.
 #  Successfully updated.
 
@@ -1129,9 +1141,16 @@ check: first
 #  Successfully updated.
 
 # Not a target:
+InitWindow.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-27 23:37:40.761636896
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 Window.hpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-27 11:03:31.868059027
+#  Last modified 2022-05-28 03:43:23.010893317
 #  File has been updated.
 #  Successfully updated.
 
@@ -1154,29 +1173,29 @@ compiler_lex_clean:
 
 moc_Window.o: moc_Window.cpp
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-27 11:14:08.575939775
+#  Last modified 2022-05-28 03:52:16.247075263
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 416):
+#  recipe to execute (from 'Makefile', line 447):
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_Window.o moc_Window.cpp
 
-moc_RenderArea.cpp: RenderArea.hpp moc_predefs.h /usr/lib/qt5/bin/moc
+moc_RenderArea.cpp: RenderArea.hpp Matrix.hpp Pixel.hpp CurrentColor.hpp Bitmap.hpp moc_predefs.h /usr/lib/qt5/bin/moc
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-27 11:14:06.511892369
+#  Last modified 2022-05-28 03:52:13.863072716
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 368):
+#  recipe to execute (from 'Makefile', line 386):
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ramsensei/Desktop/Ramsensei/Paint.cpp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include RenderArea.hpp -o moc_RenderArea.cpp
 
 distdir: FORCE
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 326):
+#  recipe to execute (from 'Makefile', line 329):
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents Bitmap.hpp CurrentColor.hpp Matrix.hpp Pixel.hpp RenderArea.hpp Window.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents Bitmap.hpp CurrentColor.hpp InitWindow.hpp Matrix.hpp Pixel.hpp RenderArea.hpp Window.hpp $(DISTDIR)/
 	$(COPY_FILE) --parents Bitmap.cpp CurrentColor.cpp main.cpp Matrix.cpp $(DISTDIR)/
 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf:
@@ -1212,7 +1231,7 @@ clean: compiler_clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 334):
+#  recipe to execute (from 'Makefile', line 337):
 	-$(DEL_FILE) $(OBJECTS)
 	-$(DEL_FILE) *~ core *.core
 
@@ -1234,19 +1253,19 @@ install: FORCE
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=138/1024=13%, Rehash=0, Collisions=25/379=7%
+# Load=142/1024=14%, Rehash=0, Collisions=29/411=7%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 146 / storage = 6157 B / avg = 42 B
-# current buf: size = 8162 B / used = 6157 B / count = 146 / avg = 42 B
+# strcache buffers: 1 (0) / strings = 155 / storage = 6268 B / avg = 40 B
+# current buf: size = 8162 B / used = 6268 B / count = 155 / avg = 40 B
 
-# strcache performance: lookups = 418 / hit rate = 65%
+# strcache performance: lookups = 457 / hit rate = 66%
 # hash-table stats:
-# Load=146/8192=2%, Rehash=0, Collisions=4/418=1%
-# Finished Make data base on Fri May 27 11:16:33 2022
+# Load=155/8192=2%, Rehash=0, Collisions=7/457=2%
+# Finished Make data base on Sat May 28 15:32:18 2022
 
  

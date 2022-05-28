@@ -5,7 +5,10 @@
 #include <QLabel>
 #include <QWidget>
 #include <QComboBox>
+#include <QPushButton>
+#include <QColorDialog>
 #include <QSpinBox>
+#include <QLineEdit>
 #include <QCheckBox>
 #include <QGridLayout>
 
@@ -16,30 +19,37 @@ class Window : public QWidget
     Q_OBJECT
 
 public:
-    Window();
+    Window(int width, int height);
 
 private slots:
     void shapeChanged();
     void penChanged();
-    void brushChanged();
+    void colorChanged();
+    void filterChanged();
+    void save();
 
 private:
     RenderArea *renderArea;
-    QLabel *shapeLabel;
+    QLabel *toolLabel;
+    QLabel *filtersLabel;
     QLabel *penWidthLabel;
-    QLabel *penStyleLabel;
-    QLabel *penCapLabel;
-    QLabel *penJoinLabel;
-    QLabel *brushStyleLabel;
-    QLabel *otherOptionsLabel;
-    QComboBox *shapeComboBox;
+    QLabel *colorSelectorLabel;
+    QLabel *rotateRightLabel;
+    QLabel *rotateLeftLabel;
+    QLabel *flipHorizontalLabel;
+    QLabel *flipVerticalLabel;
+    QLineEdit *saveLineEdit;
+
+    QComboBox *toolComboBox;
+    QComboBox *filtersComboBox;
     QSpinBox *penWidthSpinBox;
-    QComboBox *penStyleComboBox;
-    QComboBox *penCapComboBox;
-    QComboBox *penJoinComboBox;
-    QComboBox *brushStyleComboBox;
-    QCheckBox *antialiasingCheckBox;
-    QCheckBox *transformationsCheckBox;
+    QPushButton *colorSelectorButton;
+    QPushButton *rotateRightButton;
+    QPushButton *rotateLeftButton;
+    QPushButton *flipHorizontalButton;
+    QPushButton *flipVerticalButton;
+    QPushButton *saveButton;
+
 };
 
 #endif

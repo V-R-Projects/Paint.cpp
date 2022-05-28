@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_RenderArea_t {
-    QByteArrayData data[13];
-    char stringdata0[113];
+    QByteArrayData data[21];
+    char stringdata0[170];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,19 +36,29 @@ QT_MOC_LITERAL(1, 11, 8), // "setShape"
 QT_MOC_LITERAL(2, 20, 0), // ""
 QT_MOC_LITERAL(3, 21, 5), // "Shape"
 QT_MOC_LITERAL(4, 27, 5), // "shape"
-QT_MOC_LITERAL(5, 33, 6), // "setPen"
-QT_MOC_LITERAL(6, 40, 3), // "pen"
-QT_MOC_LITERAL(7, 44, 8), // "setBrush"
-QT_MOC_LITERAL(8, 53, 5), // "brush"
-QT_MOC_LITERAL(9, 59, 14), // "setAntialiased"
-QT_MOC_LITERAL(10, 74, 11), // "antialiased"
-QT_MOC_LITERAL(11, 86, 14), // "setTransformed"
-QT_MOC_LITERAL(12, 101, 11) // "transformed"
+QT_MOC_LITERAL(5, 33, 9), // "setFilter"
+QT_MOC_LITERAL(6, 43, 6), // "Filter"
+QT_MOC_LITERAL(7, 50, 6), // "filter"
+QT_MOC_LITERAL(8, 57, 11), // "setPenWidth"
+QT_MOC_LITERAL(9, 69, 3), // "pen"
+QT_MOC_LITERAL(10, 73, 8), // "setColor"
+QT_MOC_LITERAL(11, 82, 5), // "color"
+QT_MOC_LITERAL(12, 88, 8), // "setBrush"
+QT_MOC_LITERAL(13, 97, 5), // "brush"
+QT_MOC_LITERAL(14, 103, 11), // "rotateRight"
+QT_MOC_LITERAL(15, 115, 10), // "rotateLeft"
+QT_MOC_LITERAL(16, 126, 14), // "flipHorizontal"
+QT_MOC_LITERAL(17, 141, 12), // "flipVertical"
+QT_MOC_LITERAL(18, 154, 4), // "save"
+QT_MOC_LITERAL(19, 159, 5), // "char*"
+QT_MOC_LITERAL(20, 165, 4) // "name"
 
     },
     "RenderArea\0setShape\0\0Shape\0shape\0"
-    "setPen\0pen\0setBrush\0brush\0setAntialiased\0"
-    "antialiased\0setTransformed\0transformed"
+    "setFilter\0Filter\0filter\0setPenWidth\0"
+    "pen\0setColor\0color\0setBrush\0brush\0"
+    "rotateRight\0rotateLeft\0flipHorizontal\0"
+    "flipVertical\0save\0char*\0name"
 };
 #undef QT_MOC_LITERAL
 
@@ -58,7 +68,7 @@ static const uint qt_meta_data_RenderArea[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -66,18 +76,28 @@ static const uint qt_meta_data_RenderArea[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   39,    2, 0x0a /* Public */,
-       5,    1,   42,    2, 0x0a /* Public */,
-       7,    1,   45,    2, 0x0a /* Public */,
-       9,    1,   48,    2, 0x0a /* Public */,
-      11,    1,   51,    2, 0x0a /* Public */,
+       1,    1,   64,    2, 0x0a /* Public */,
+       5,    1,   67,    2, 0x0a /* Public */,
+       8,    1,   70,    2, 0x0a /* Public */,
+      10,    1,   73,    2, 0x0a /* Public */,
+      12,    1,   76,    2, 0x0a /* Public */,
+      14,    0,   79,    2, 0x0a /* Public */,
+      15,    0,   80,    2, 0x0a /* Public */,
+      16,    0,   81,    2, 0x0a /* Public */,
+      17,    0,   82,    2, 0x0a /* Public */,
+      18,    1,   83,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
-    QMetaType::Void, QMetaType::QPen,    6,
-    QMetaType::Void, QMetaType::QBrush,    8,
-    QMetaType::Void, QMetaType::Bool,   10,
-    QMetaType::Void, QMetaType::Bool,   12,
+    QMetaType::Void, 0x80000000 | 6,    7,
+    QMetaType::Void, QMetaType::Int,    9,
+    QMetaType::Void, QMetaType::QColor,   11,
+    QMetaType::Void, QMetaType::QBrush,   13,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 19,   20,
 
        0        // eod
 };
@@ -89,10 +109,15 @@ void RenderArea::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->setShape((*reinterpret_cast< Shape(*)>(_a[1]))); break;
-        case 1: _t->setPen((*reinterpret_cast< const QPen(*)>(_a[1]))); break;
-        case 2: _t->setBrush((*reinterpret_cast< const QBrush(*)>(_a[1]))); break;
-        case 3: _t->setAntialiased((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 4: _t->setTransformed((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 1: _t->setFilter((*reinterpret_cast< Filter(*)>(_a[1]))); break;
+        case 2: _t->setPenWidth((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->setColor((*reinterpret_cast< QColor(*)>(_a[1]))); break;
+        case 4: _t->setBrush((*reinterpret_cast< const QBrush(*)>(_a[1]))); break;
+        case 5: _t->rotateRight(); break;
+        case 6: _t->rotateLeft(); break;
+        case 7: _t->flipHorizontal(); break;
+        case 8: _t->flipVertical(); break;
+        case 9: _t->save((*reinterpret_cast< char*(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -127,13 +152,13 @@ int RenderArea::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 10)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 10;
     }
     return _id;
 }
