@@ -1,7 +1,7 @@
 #ifndef Matrix_h
 #define Matrix_h
 
-#include "Pixel.cpp"
+#include "Pixel.hpp"
 #include "CurrentColor.hpp"
 #include <iostream>
 #include <string>

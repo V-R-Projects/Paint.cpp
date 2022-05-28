@@ -1,4 +1,5 @@
 #include "Window.cpp"
+#include "Pixel.cpp"
 #include "RenderArea.cpp"
 #include <iostream>
 

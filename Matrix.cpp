@@ -30,7 +30,7 @@ void Matrix::printMatrix(Pixel ***matrix, bool traspose)
     {
         for (int j = 0; j < width; j++)
         {
-            cout << i << "," << j << ": " << endl;
+            std::cout << i << "," << j << ": " << std::endl;
             if (traspose)
             {
                 matrix[j][i]->print();

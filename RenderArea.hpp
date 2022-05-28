@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QPainter>
+#include <QMouseEvent>
+
+#include "Matrix.hpp"
 
 class RenderArea : public QWidget
 {
@@ -26,6 +29,8 @@ public slots:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
 private:
     Shape shape;
@@ -33,6 +38,7 @@ private:
     QBrush brush;
     bool antialiased;
     bool transformed;
+    Matrix *matrix;
 };
 
 #endif

@@ -103,7 +103,7 @@ Window::Window()
                 renderArea, &RenderArea::setTransformed);
 
         QGridLayout *mainLayout = new QGridLayout;
-        mainLayout->setColumnStretch(0, 1);
+        mainLayout->setColumnStretch(0, 3);
         mainLayout->setColumnStretch(2, 1);
         mainLayout->addWidget(renderArea, 0, 0, 8, 1);
         mainLayout->addWidget(shapeLabel, 0, 1, Qt::AlignRight);
