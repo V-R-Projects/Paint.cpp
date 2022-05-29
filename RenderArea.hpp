@@ -21,6 +21,7 @@ public:
 
     QSize minimumSizeHint() const override;
     QSize sizeHint() const override;
+    QColor getColor();
 
 public slots:
     void setShape(Shape shape);
@@ -53,7 +54,8 @@ protected:
     void doHexagon();
     void doCircle();
     void doPaintFill();
-    QColor doColorPicker();
+    void doColorPicker();
+    
 
 
 private:

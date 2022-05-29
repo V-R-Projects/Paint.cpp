@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_RenderArea_t {
-    QByteArrayData data[21];
-    char stringdata0[170];
+    QByteArrayData data[23];
+    char stringdata0[180];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -51,14 +51,17 @@ QT_MOC_LITERAL(16, 126, 14), // "flipHorizontal"
 QT_MOC_LITERAL(17, 141, 12), // "flipVertical"
 QT_MOC_LITERAL(18, 154, 4), // "save"
 QT_MOC_LITERAL(19, 159, 5), // "char*"
-QT_MOC_LITERAL(20, 165, 4) // "name"
+QT_MOC_LITERAL(20, 165, 4), // "name"
+QT_MOC_LITERAL(21, 170, 4), // "load"
+QT_MOC_LITERAL(22, 175, 4) // "path"
 
     },
     "RenderArea\0setShape\0\0Shape\0shape\0"
     "setFilter\0Filter\0filter\0setPenWidth\0"
     "pen\0setColor\0color\0setBrush\0brush\0"
     "rotateRight\0rotateLeft\0flipHorizontal\0"
-    "flipVertical\0save\0char*\0name"
+    "flipVertical\0save\0char*\0name\0load\0"
+    "path"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,7 +71,7 @@ static const uint qt_meta_data_RenderArea[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -76,16 +79,17 @@ static const uint qt_meta_data_RenderArea[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   64,    2, 0x0a /* Public */,
-       5,    1,   67,    2, 0x0a /* Public */,
-       8,    1,   70,    2, 0x0a /* Public */,
-      10,    1,   73,    2, 0x0a /* Public */,
-      12,    1,   76,    2, 0x0a /* Public */,
-      14,    0,   79,    2, 0x0a /* Public */,
-      15,    0,   80,    2, 0x0a /* Public */,
-      16,    0,   81,    2, 0x0a /* Public */,
-      17,    0,   82,    2, 0x0a /* Public */,
-      18,    1,   83,    2, 0x0a /* Public */,
+       1,    1,   69,    2, 0x0a /* Public */,
+       5,    1,   72,    2, 0x0a /* Public */,
+       8,    1,   75,    2, 0x0a /* Public */,
+      10,    1,   78,    2, 0x0a /* Public */,
+      12,    1,   81,    2, 0x0a /* Public */,
+      14,    0,   84,    2, 0x0a /* Public */,
+      15,    0,   85,    2, 0x0a /* Public */,
+      16,    0,   86,    2, 0x0a /* Public */,
+      17,    0,   87,    2, 0x0a /* Public */,
+      18,    1,   88,    2, 0x0a /* Public */,
+      21,    1,   91,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -98,6 +102,7 @@ static const uint qt_meta_data_RenderArea[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 19,   20,
+    QMetaType::Void, 0x80000000 | 19,   22,
 
        0        // eod
 };
@@ -118,6 +123,7 @@ void RenderArea::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->flipHorizontal(); break;
         case 8: _t->flipVertical(); break;
         case 9: _t->save((*reinterpret_cast< char*(*)>(_a[1]))); break;
+        case 10: _t->load((*reinterpret_cast< char*(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -152,13 +158,13 @@ int RenderArea::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 11)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 10;
+        _id -= 11;
     }
     return _id;
 }

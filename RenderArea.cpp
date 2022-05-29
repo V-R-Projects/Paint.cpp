@@ -28,6 +28,11 @@ QSize RenderArea::minimumSizeHint() const
     return QSize(this->matrix->getWidth(), this->matrix->getHeight());
 }
 
+QColor RenderArea::getColor()
+{
+    return color;
+}
+
 void RenderArea::setShape(Shape shape)
 {
     this->shape = shape;
@@ -105,8 +110,6 @@ void RenderArea::save(char *name)
 
 void RenderArea::load(char *path)
 {
-    Bitmap *bitmap = new Bitmap(path);
-    matrix.setMatrix(bitmap->pixelArrayToMatrix());
 }
 
 void RenderArea::paintEvent(QPaintEvent * /* event */)
@@ -323,9 +326,10 @@ void RenderArea::doPaintFill()
     matrix->paintFill(matrix->getPixel(currentPoint.y(), currentPoint.x())->getColor(), CurrentColor(color.red(), color.green(), color.blue()), currentPoint.y(), currentPoint.x());
 }
 
-QColor RenderArea::doColorPicker()
+void RenderArea::doColorPicker()
 {
-    CurrentColor c = matrix->getPixel(currentPoint.x(), currentPoint.y())->getColor();
+    CurrentColor c = matrix->getPixel(currentPoint.y(), currentPoint.x())->getColor();
+    color = QColor(c.getR(), c.getG(), c.getB());
 }
 
 
