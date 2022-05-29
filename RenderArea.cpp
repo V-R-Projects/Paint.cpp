@@ -10,9 +10,6 @@ RenderArea::RenderArea(int width, int heigth, QWidget *parent)
 
     this->matrix = new Matrix(width, heigth);
 
-    matrix->pen(CurrentColor(254, 0, 0), 0, 0, 199, 99, 3);
-    matrix->circle(CurrentColor(0, 0, 0), 100, 100, 50, 2);
-
     setBackgroundRole(QPalette::Window);
     setAutoFillBackground(true);
     color = Qt::black;

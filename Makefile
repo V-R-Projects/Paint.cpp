@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = main1.0.0
-DISTDIR = /home/ramsensei/Desktop/Ramsensei/Paint.cpp/.tmp/main1.0.0
+DISTDIR = /home/valesska/Desktop/Datos\ II/Proyectos/ProyectoII/Paint.cpp/.tmp/main1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
 LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so /usr/lib/x86_64-linux-gnu/libGL.so -lpthread   
@@ -374,7 +374,7 @@ moc_InitWindow.cpp: InitWindow.hpp \
 		Bitmap.hpp \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ramsensei/Desktop/Ramsensei/Paint.cpp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include InitWindow.hpp -o moc_InitWindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/valesska/Desktop/Datos II/Proyectos/ProyectoII/Paint.cpp/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/valesska/Desktop/Datos II/Proyectos/ProyectoII/Paint.cpp' -I'/home/valesska/Desktop/Datos II/Proyectos/ProyectoII/Paint.cpp' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include InitWindow.hpp -o moc_InitWindow.cpp
 
 moc_RenderArea.cpp: RenderArea.hpp \
 		Matrix.hpp \
@@ -383,7 +383,7 @@ moc_RenderArea.cpp: RenderArea.hpp \
 		Bitmap.hpp \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ramsensei/Desktop/Ramsensei/Paint.cpp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include RenderArea.hpp -o moc_RenderArea.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/valesska/Desktop/Datos II/Proyectos/ProyectoII/Paint.cpp/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/valesska/Desktop/Datos II/Proyectos/ProyectoII/Paint.cpp' -I'/home/valesska/Desktop/Datos II/Proyectos/ProyectoII/Paint.cpp' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include RenderArea.hpp -o moc_RenderArea.cpp
 
 moc_Window.cpp: Window.hpp \
 		RenderArea.hpp \
@@ -393,7 +393,7 @@ moc_Window.cpp: Window.hpp \
 		Bitmap.hpp \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ramsensei/Desktop/Ramsensei/Paint.cpp/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/home/ramsensei/Desktop/Ramsensei/Paint.cpp -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Window.hpp -o moc_Window.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include '/home/valesska/Desktop/Datos II/Proyectos/ProyectoII/Paint.cpp/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/home/valesska/Desktop/Datos II/Proyectos/ProyectoII/Paint.cpp' -I'/home/valesska/Desktop/Datos II/Proyectos/ProyectoII/Paint.cpp' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Window.hpp -o moc_Window.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

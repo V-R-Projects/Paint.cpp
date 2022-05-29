@@ -3,10 +3,17 @@
 using namespace std;
 
 Bitmap::Bitmap(Pixel ***matrix, int height, int width, char file_name[])
-{   
+{
+    this->height = height;
+    this->width = width;
     padding_bytes = (4 - (width * BITS_PER_PIXEL / 8) % 4) % 4;
     pixel_array_size = height * width * (BITS_PER_PIXEL / 8) + padding_bytes * height;
     generateBitmapImage(matrix, height, width, file_name);
+}
+
+Bitmap::Bitmap(char file_name[])
+{
+    readBMP(file_name);
 }
 
 void Bitmap::generateBitmapImage(Pixel ***matrix, int height, int width, char file_name[])
@@ -15,13 +22,64 @@ void Bitmap::generateBitmapImage(Pixel ***matrix, int height, int width, char fi
 
     unsigned char *file_header = createBitmapFileHeader(height, width);
     unsigned char *info_header = createBitmapInfoHeader(height, width);
-    unsigned char *pixel_array = matrixToPixelArray(matrix, height, width);
+    pixel_array = matrixToPixelArray(matrix, height, width);
 
     fwrite(file_header, 1, FILE_HEADER_SIZE, image_file);
     fwrite(info_header, 1, INFO_HEADER_SIZE, image_file);
     fwrite(pixel_array, 1, pixel_array_size, image_file);
 
     cout << "Bitmap Image created succesfully!" << endl;
+}
+
+void Bitmap::readBMP(char file_name[])
+{
+    std::ifstream f;
+    f.open(file_name, std::ios::in | std::ios::binary);
+
+    if (!f.is_open())
+    {
+        std::cout << "File could not be open\n";
+        return;
+    }
+    unsigned char fileHeader[FILE_HEADER_SIZE];
+    f.read(reinterpret_cast<char *>(fileHeader), FILE_HEADER_SIZE);
+
+    if (fileHeader[0] != 'B' || fileHeader[1] != 'M')
+    {
+        std::cout << "The specified path is not a bitmap image" << std::endl;
+        f.close();
+        return;
+    }
+
+    unsigned char informationHeader[INFO_HEADER_SIZE];
+    f.read(reinterpret_cast<char *>(informationHeader), INFO_HEADER_SIZE);
+
+    int fileSize = fileHeader[2] + (fileHeader[3] << 8) + (fileHeader[4] << 16) + (fileHeader[5] << 24);
+
+    width = informationHeader[4] + (informationHeader[5] << 8) + (informationHeader[6] << 16) + (informationHeader[7] << 24);
+    height = informationHeader[8] + (informationHeader[9] << 8) + (informationHeader[10] << 16) + (informationHeader[11] << 24);
+
+    int pixelArraySize = width * height * (BITS_PER_PIXEL / 8);
+    padding_bytes = (4 - (width * BITS_PER_PIXEL / 8) % 4) % 4;
+    pixel_array = (unsigned char *)malloc(pixelArraySize);
+
+    int c = 0;
+    for (int y = 0; y < height; y++)
+    {
+        for (int x = 0; x < width; x++)
+        {
+            unsigned char color[3];
+            f.read(reinterpret_cast<char *>(color), 3);
+            pixel_array[c] = static_cast<float>(color[2]);
+            pixel_array[c + 1] = static_cast<float>(color[1]);
+            pixel_array[c + 2] = static_cast<float>(color[0]);
+            c = c + 3;
+        }
+        f.ignore(padding_bytes);
+    }
+
+    f.close();
+    std::cout << "File imported read " << std::endl;
 }
 
 unsigned char *Bitmap::createBitmapFileHeader(int height, int width)
@@ -34,7 +92,6 @@ unsigned char *Bitmap::createBitmapFileHeader(int height, int width)
         0, 0, 0, 0,  /// reserved
         54, 0, 0, 0, /// start of pixel array
     };
-
 
     fillFourBytes(file_header, file_size, 2);
 
@@ -102,4 +159,25 @@ unsigned char *Bitmap::matrixToPixelArray(Pixel ***matrix, int height, int width
     }
 
     return pixel_array;
+}
+
+Pixel ***Bitmap::pixelArrayToMatrix(char file_name[])
+{
+    Pixel ***matrix;
+
+    int c = 0;
+    for (int i = height - 1; i >= 0; i--)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            int b = pixel_array[0];
+            int g = pixel_array[1];
+            int r = pixel_array[2];
+            Pixel *pixel = new Pixel();
+            pixel->setPixelColor(r, g, b);
+            matrix[i][j] = pixel;
+        }
+    }
+
+    return matrix;
 }

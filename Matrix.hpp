@@ -15,6 +15,7 @@ public:
     Matrix(int height, int width);
     void setSize(int height, int width);
     void createMatrix();
+    void loadMatrix();
     void initializePixels();
     void printMatrix(Pixel ***matrix, bool traspose = false);
     Pixel ***getMatrix();
