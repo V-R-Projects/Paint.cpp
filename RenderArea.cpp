@@ -110,14 +110,9 @@ void RenderArea::save(char *name)
 void RenderArea::load(char *path)
 {
     Bitmap *bitmap = new Bitmap(path);
-    cout << "hola 1" << endl;
     Pixel ***pixel_pointers = bitmap->pixelArrayToMatrix();
-    cout << "hola 2" << endl;
     Matrix *read_matrix = new Matrix(bitmap->getHeight(), bitmap->getWidth());
-    cout << "hola 3" << endl;
     read_matrix->setMatrix(pixel_pointers);
-    cout << "hola 4" << endl;
-    // read_matrix->printMatrix(read_matrix->getMatrix());
     this->matrix = new Matrix(bitmap->getHeight(), bitmap->getWidth());
     matrix->setMatrix(pixel_pointers);
 

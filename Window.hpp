@@ -30,7 +30,7 @@ private slots:
     void load();
 
 protected:
-    void paintEvent(QPaintEvent *event) override;
+    void leaveEvent(QEvent *event) override;
 
 private:
     RenderArea *renderArea;

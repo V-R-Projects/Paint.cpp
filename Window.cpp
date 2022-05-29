@@ -161,7 +161,7 @@ void Window::load()
         renderArea->load((loadLineEdit->text()+".bmp").toLocal8Bit().data());
 }
 
-void Window::paintEvent(QPaintEvent *event)
+void Window::leaveEvent(QEvent *event)
 {
         QColor color = renderArea->getColor();
         colorSelectorButton->setStyleSheet(

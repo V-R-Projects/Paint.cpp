@@ -68,7 +68,6 @@ void Bitmap::readBMP(char file_name[])
     {
         for (int x = 0; x < width; x++)
         {
-            cout << "leyendo pixel array" << endl;
             unsigned char color[3];
             f.read(reinterpret_cast<char *>(color), 3);
             pixel_array[c] = static_cast<float>(color[2]);
@@ -78,13 +77,12 @@ void Bitmap::readBMP(char file_name[])
         }
         f.ignore(padding_bytes);
     }
-    cout <<"entre for"<< endl;
+
     for (int i = 0; i < pixel_array_size; i++)
     {
-        cout << "i: " << i << endl;
         int n = pixel_array[i];
-        cout << n << " "<< endl;
     }
+
     f.close();
     std::cout << "File imported read " << std::endl;
 }
@@ -184,16 +182,15 @@ Pixel ***Bitmap::pixelArrayToMatrix()
     {
         for (int j = 0; j < width; j++)
         {
-            // cout << "i: " << i << " "
-                //  << "j: " << j << endl;
 
-            int b = pixel_array[0];
-            int g = pixel_array[1];
-            int r = pixel_array[2];
+            int b = pixel_array[c];
+            int g = pixel_array[c+1];
+            int r = pixel_array[c+2];
             Pixel *pixel = new Pixel();
             pixel->setPixelColor(r, g, b);
             matrix[i][j] = pixel;
 
+            c = c + 3;
         }
     }
 
