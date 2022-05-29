@@ -81,6 +81,8 @@ Window::Window(int width, int height)
                 renderArea, &RenderArea::flipVertical);
         connect(saveButton, &QPushButton::clicked,
                 this, &Window::save);
+        connect(loadButton, &QPushButton::clicked,
+                this, &Window::load);
 
         
 

@@ -24,7 +24,9 @@ public:
     unsigned char *createBitmapInfoHeader(int height, int width);
     unsigned char *generateBlankCanvas();
     unsigned char *matrixToPixelArray(Pixel ***matrix, int height, int width);
-    Pixel ***pixelArrayToMatrix(char file_name[]);
+    Pixel ***pixelArrayToMatrix();
+    int getHeight();
+    int getWidth();
 
 private:
     unsigned char *pixel_array;

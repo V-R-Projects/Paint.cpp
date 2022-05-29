@@ -38,7 +38,7 @@ void Bitmap::readBMP(char file_name[])
 
     if (!f.is_open())
     {
-        std::cout << "File could not be open\n";
+        std::cout << "File could not be open\n"<<endl;
         return;
     }
     unsigned char fileHeader[FILE_HEADER_SIZE];
@@ -59,15 +59,16 @@ void Bitmap::readBMP(char file_name[])
     width = informationHeader[4] + (informationHeader[5] << 8) + (informationHeader[6] << 16) + (informationHeader[7] << 24);
     height = informationHeader[8] + (informationHeader[9] << 8) + (informationHeader[10] << 16) + (informationHeader[11] << 24);
 
-    int pixelArraySize = width * height * (BITS_PER_PIXEL / 8);
+    int pixel_array_size = width * height * (BITS_PER_PIXEL / 8);
     padding_bytes = (4 - (width * BITS_PER_PIXEL / 8) % 4) % 4;
-    pixel_array = (unsigned char *)malloc(pixelArraySize);
+    pixel_array = (unsigned char *)malloc(pixel_array_size);
 
     int c = 0;
     for (int y = 0; y < height; y++)
     {
         for (int x = 0; x < width; x++)
         {
+            cout << "leyendo pixel array" << endl;
             unsigned char color[3];
             f.read(reinterpret_cast<char *>(color), 3);
             pixel_array[c] = static_cast<float>(color[2]);
@@ -77,7 +78,13 @@ void Bitmap::readBMP(char file_name[])
         }
         f.ignore(padding_bytes);
     }
-
+    cout <<"entre for"<< endl;
+    for (int i = 0; i < pixel_array_size; i++)
+    {
+        cout << "i: " << i << endl;
+        int n = pixel_array[i];
+        cout << n << " "<< endl;
+    }
     f.close();
     std::cout << "File imported read " << std::endl;
 }
@@ -161,23 +168,44 @@ unsigned char *Bitmap::matrixToPixelArray(Pixel ***matrix, int height, int width
     return pixel_array;
 }
 
-Pixel ***Bitmap::pixelArrayToMatrix(char file_name[])
+Pixel ***Bitmap::pixelArrayToMatrix()
 {
     Pixel ***matrix;
+    matrix = (Pixel ***)malloc(sizeof(Pixel **) * height);
+
+    for (int i = 0; i < height; i++)
+    {
+        matrix[i] = (Pixel **)malloc(sizeof(Pixel *) * width);
+    }
 
     int c = 0;
+    
     for (int i = height - 1; i >= 0; i--)
     {
         for (int j = 0; j < width; j++)
         {
+            // cout << "i: " << i << " "
+                //  << "j: " << j << endl;
+
             int b = pixel_array[0];
             int g = pixel_array[1];
             int r = pixel_array[2];
             Pixel *pixel = new Pixel();
             pixel->setPixelColor(r, g, b);
             matrix[i][j] = pixel;
+
         }
     }
 
     return matrix;
+}
+
+int Bitmap::getHeight()
+{
+    return height;
+}
+
+int Bitmap::getWidth()
+{
+    return width;
 }
