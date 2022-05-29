@@ -59,6 +59,10 @@ Window::Window(int width, int height)
 
         saveLineEdit = new QLineEdit;
 
+        loadButton = new QPushButton(tr("Load"));
+
+        loadLineEdit = new QLineEdit;
+
         connect(toolComboBox, QOverload<int>::of(&QComboBox::activated),
                 this, &Window::shapeChanged);
         connect(penWidthSpinBox, QOverload<int>::of(&QSpinBox::valueChanged),
@@ -102,6 +106,8 @@ Window::Window(int width, int height)
         mainLayout->addWidget(flipVerticalButton, 7, 2);
         mainLayout->addWidget(saveLineEdit, 8, 1, Qt::AlignRight);
         mainLayout->addWidget(saveButton, 8, 2);
+        mainLayout->addWidget(loadLineEdit, 9, 1, Qt::AlignRight);
+        mainLayout->addWidget(loadButton, 9, 2);
         setLayout(mainLayout);
 
         shapeChanged();
@@ -146,4 +152,9 @@ void Window::filterChanged()
 void Window::save()
 {
         renderArea->save((saveLineEdit->text()+".bmp").toLocal8Bit().data());
+}
+
+void Window::load()
+{
+        renderArea->load((loadLineEdit->text()+".bmp").toLocal8Bit().data());
 }

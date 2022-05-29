@@ -18,6 +18,7 @@ public:
     void initializePixels();
     void printMatrix(Pixel ***matrix, bool traspose = false);
     Pixel ***getMatrix();
+    Pixel ***setMatrix(Pixel ***matrix);
     void setColor(Pixel *pixel, CurrentColor color);
     Pixel *getPixel(int i, int j);
     int getHeight();

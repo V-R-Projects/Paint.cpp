@@ -59,6 +59,11 @@ Pixel ***Matrix::getMatrix()
     return matrix;
 }
 
+Pixel ***Matrix::setMatrix(Pixel ***matrix)
+{
+    this->matrix = matrix;
+}
+
 int Matrix::getHeight()
 {
     return height;

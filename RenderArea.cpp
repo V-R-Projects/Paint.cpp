@@ -103,6 +103,12 @@ void RenderArea::save(char *name)
     Bitmap *bitmap = new Bitmap(matrix->getMatrix(), matrix->getWidth(), matrix->getHeight(), name);
 }
 
+void RenderArea::load(char *path)
+{
+    Bitmap *bitmap = new Bitmap(path);
+    matrix.setMatrix(bitmap->pixelArrayToMatrix());
+}
+
 void RenderArea::paintEvent(QPaintEvent * /* event */)
 {
 

@@ -35,6 +35,7 @@ public slots:
     void flipVertical();
 
     void save(char *name);
+    void load(char *path);
 
 protected:
     void paintEvent(QPaintEvent *event) override;

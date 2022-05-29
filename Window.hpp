@@ -27,6 +27,7 @@ private slots:
     void colorChanged();
     void filterChanged();
     void save();
+    void load();
 
 private:
     RenderArea *renderArea;
@@ -39,6 +40,7 @@ private:
     QLabel *flipHorizontalLabel;
     QLabel *flipVerticalLabel;
     QLineEdit *saveLineEdit;
+    QLineEdit *loadLineEdit;
 
     QComboBox *toolComboBox;
     QComboBox *filtersComboBox;
@@ -49,6 +51,7 @@ private:
     QPushButton *flipHorizontalButton;
     QPushButton *flipVerticalButton;
     QPushButton *saveButton;
+    QPushButton *loadButton;
 
 };
 
