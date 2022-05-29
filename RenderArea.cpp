@@ -3,7 +3,7 @@
 using namespace std;
 
 RenderArea::RenderArea(int width, int heigth, QWidget *parent)
-    : QWidget(parent)
+    : QAbstractButton(parent)
 {
     shape = Pencil;
     filter = None;
@@ -336,7 +336,8 @@ void RenderArea::doPaintFill()
 void RenderArea::doColorPicker()
 {
     CurrentColor c = matrix->getPixel(currentPoint.y(), currentPoint.x())->getColor();
-    color = QColor(c.getR(), c.getG(), c.getB());
+    setColor(QColor(c.getR(), c.getG(), c.getB()));
+    click();
 }
 
 
