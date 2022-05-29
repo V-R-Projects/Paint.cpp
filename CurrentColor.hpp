@@ -15,11 +15,13 @@ public:
     int getR() { return r; };
     int getG() { return g; };
     int getB() { return b; };
+    CurrentColor addToColor(int add);
 
 private:
     int r;
     int g;
     int b;
 };
+
 
 #endif

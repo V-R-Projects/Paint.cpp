@@ -1,15 +1,13 @@
-#include "Bitmap.cpp"
-#include "Matrix.cpp"
+#include "Window.cpp"
+#include "Pixel.cpp"
+#include "RenderArea.cpp"
+#include "InitWindow.cpp"
 #include <iostream>
 
-int main()
+int main(int argc, char **argv)
 {
-    Matrix *matrix = new Matrix(50, 50);
-
-    // cuando se selecciona un color
-    CurrentColor black = CurrentColor(0, 0, 255);
-
-    matrix->line(black, 0, 49, 49, 0);
-    Bitmap *image_test = new Bitmap(matrix->getMatrix(), matrix->getHeight(), matrix->getWidth(), "linea_azul.bmp");
-
+    QApplication app(argc, argv);
+    InitWindow w;
+    w.show();
+    app.exec();
 }

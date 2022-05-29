@@ -5,7 +5,10 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/include/c++/10",
-                "/usr/include/x86_64-linux-gnu/c++/10"
+                "/usr/include/x86_64-linux-gnu/c++/10",
+                "/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+                "/usr/include/x86_64-linux-gnu/qt5",
+                "/usr/include/x86_64-linux-gnu/qt5/QtGui"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

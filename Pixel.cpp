@@ -4,14 +4,20 @@ using namespace std;
 
 Pixel::Pixel()
 {
-    setColor(255, 255, 255);
+    setPixelColor(255, 255, 255);
 }
 
-void Pixel::setColor(int r, int g, int b)
+void Pixel::setPixelColor(int r, int g, int b)
 {
     R = r;
     G = g;
     B = b;
+}
+void Pixel::setPixelColor(CurrentColor color)
+{
+    R = color.getR();
+    G = color.getG();
+    B = color.getB();
 }
 
 void Pixel::print()
@@ -30,4 +36,8 @@ int Pixel::getGreen()
 int Pixel::getBlue()
 {
     return B;
+}
+CurrentColor Pixel::getColor()
+{
+    return CurrentColor(R, G, B);
 }
