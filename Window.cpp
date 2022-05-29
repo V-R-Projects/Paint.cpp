@@ -83,6 +83,8 @@ Window::Window(int width, int height)
                 this, &Window::save);
         connect(loadButton, &QPushButton::clicked,
                 this, &Window::load);
+        connect(renderArea, &RenderArea::clicked,
+                this, &Window::updateColor);
 
         
 
@@ -161,7 +163,7 @@ void Window::load()
         renderArea->load((loadLineEdit->text()+".bmp").toLocal8Bit().data());
 }
 
-void Window::leaveEvent(QEvent *event)
+void Window::updateColor()
 {
         QColor color = renderArea->getColor();
         colorSelectorButton->setStyleSheet(

@@ -2,6 +2,7 @@
 #define RenderArea_hpp
 
 #include <QWidget>
+#include <QAbstractButton>
 #include <QPainter>
 #include <QMouseEvent>
 #include <QColorDialog>
@@ -9,7 +10,7 @@
 #include "Matrix.hpp"
 #include "Bitmap.hpp"
 
-class RenderArea : public QWidget
+class RenderArea : public QAbstractButton
 {
     Q_OBJECT
 
