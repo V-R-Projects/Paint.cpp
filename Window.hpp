@@ -29,6 +29,9 @@ private slots:
     void save();
     void load();
 
+protected:
+    void paintEvent(QPaintEvent *event) override;
+
 private:
     RenderArea *renderArea;
     QLabel *toolLabel;

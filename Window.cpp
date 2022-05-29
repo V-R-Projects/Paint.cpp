@@ -160,3 +160,10 @@ void Window::load()
 {
         renderArea->load((loadLineEdit->text()+".bmp").toLocal8Bit().data());
 }
+
+void Window::paintEvent(QPaintEvent *event)
+{
+        QColor color = renderArea->getColor();
+        colorSelectorButton->setStyleSheet(
+                                                   QString("background-color: rgb(%1, %2, %3)").arg(color.red()).arg(color.green()).arg(color.blue()));
+}
